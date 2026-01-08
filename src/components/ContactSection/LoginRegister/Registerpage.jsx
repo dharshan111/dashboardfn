@@ -23,6 +23,7 @@ import {
 
 function Registerpage() {
   const [formData, setFormData] = useState({
+    username:"",
     email: "",
     password: "",
   });
@@ -70,7 +71,7 @@ function Registerpage() {
       }}
     >
       <Paper
-        elevation={3}
+        elevation={2}
         sx={{
           padding: 0,
           display: "flex",
@@ -165,9 +166,11 @@ function Registerpage() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
+                
+          
               }}
             >
-              <Typography variant="h6" sx={{ fontSize: "28px" }}>
+              <Typography variant="h6" sx={{ fontSize: "28px", }}>
                 Welcome to Spike Admin
               </Typography>
               <Typography
@@ -349,14 +352,14 @@ function Registerpage() {
                   sx={{ fontSize: "14px", fontWeight: 300 }}
                 >
                   Already have an Account?
-                  <Link to="/register" style={{ textDecoration: "none" }}>
+                  <Link to="/login" style={{ textDecoration: "none" }}>
                     <Button
                       sx={{
                         fontSize: "13px",
                         textTransform: "none",
                       }}
                     >
-                      Register
+                      Sign In
                     </Button>
                   </Link>
                 </Typography>

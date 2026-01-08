@@ -77,7 +77,7 @@ function Login() {
           alignItems: "center",
           borderRadius: "20px",
           position: "relative",
-        
+          objectFit: "contain",
         }}
       >
         <Box
