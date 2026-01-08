@@ -65,9 +65,7 @@ const Contact = () => {
         </Card>
 
         {/* Right Form */}
-        <Box sx={{ 
-       
-        }}>
+        <Box>
             <Form />
         </Box>
       </Box>
