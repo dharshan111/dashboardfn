@@ -1,9 +1,18 @@
 import Contact from "./components/ContactSection/Contact";
 import Map from "./components/ContactSection/Map";
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Contactheader from "./components/ContactSection/Contactheader";
 import Loginpage from "./components/ContactSection/LoginRegister/Loginpage";
 import Registerpage from "./components/ContactSection/LoginRegister/Registerpage";
+import Header from "./components/Dashboard/MainFolder/HeadSide/Header";
+// import Sidebar from "./components/Dashboard/MainFolder/HeadSide/Sidebar";
+import Barchart from "./components/Dashboard/MainFolder/HeadSide/Barchart";
+import PieCharts from "./components/Dashboard/MainFolder/HeadSide/Secondchart";
 function App() {
   return (
     <>
@@ -11,17 +20,18 @@ function App() {
       {/* <Map /> */}
       {/* <Contact /> */}
 
-      {/* <Loginpage />
-      <Registerpage /> */}
+      <Header />
+      <Barchart />
+      <PieCharts />
+      {/* <Sidebar /> */}
 
-      <Router>
+      {/* <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/register" />} />
           <Route path="/login" element={<Loginpage />} />
           <Route path="/register" element={<Registerpage />} />
-        
         </Routes>
-      </Router>
+      </Router> */}
     </>
   );
 }

@@ -1,0 +1,45 @@
+import { Box, Typography } from "@mui/material";
+
+export default function StatHeader({
+  title,
+  value,
+  percent,
+  percentColor,
+  subtitle,
+}) {
+  return (
+    <Box p={2}>
+      <Box sx={{ display: "flex", gap: 2.5 }}>
+        <Box>
+          <Typography fontSize={18} fontWeight={500}>
+            {title}
+          </Typography>
+
+          <Typography fontSize={12} color="#94a3b8">
+            {subtitle}
+          </Typography>
+        </Box>
+
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Typography fontSize={18} fontWeight={600}>
+            {value}
+          </Typography>
+
+          <Box
+            sx={{
+              px: 1,
+              py: 0.3,
+              fontSize: 12,
+              border: "1px solid lightgrey",
+              borderRadius: 10,
+              bgcolor: `${percentColor}22`,
+              color: percentColor,
+            }}
+          >
+            {percent}
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  );
+}

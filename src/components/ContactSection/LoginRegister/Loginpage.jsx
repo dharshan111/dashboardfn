@@ -261,7 +261,7 @@ function Login() {
               }}
             >
               Demo Login: Use <b>demo1234@gmail.com</b> and password
-              <b>demo1234</b> to <br />
+              <b> demo1234</b> to <br />
               sign in.
             </Alert>
 
