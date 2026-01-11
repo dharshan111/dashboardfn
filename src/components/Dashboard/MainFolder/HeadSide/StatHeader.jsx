@@ -20,7 +20,7 @@ export default function StatHeader({
           </Typography>
         </Box>
 
-        <Box display="flex" flexDirection="column" alignItems="center">
+        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between">
           <Typography fontSize={18} fontWeight={600}>
             {value}
           </Typography>
