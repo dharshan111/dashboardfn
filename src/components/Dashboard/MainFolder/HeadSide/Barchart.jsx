@@ -13,7 +13,7 @@ export default function StackedBarChart() {
   return (
     <Box
       sx={{
-        width: "200px",
+        width: "100%",
         padding: "10px",
         color: "#000",
         borderRadius: "20px",
@@ -84,8 +84,7 @@ export default function StackedBarChart() {
         }}
         sx={{
           width: "100%",
-          maxWidth: "220px",
-
+          maxWidth: "200px",
           // General text styling
           "& text": {
             fill: "#b4b4b4ff",

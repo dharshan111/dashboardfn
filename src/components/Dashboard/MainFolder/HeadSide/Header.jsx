@@ -188,8 +188,8 @@ const Header = () => {
                 padding: "6px",
               }}
             >
-              <Badge badgeContent={1} color="primary">
-                <CardMembershipIcon />
+              <Badge badgeContent={0} color="primary" showZero>
+                <CardMembershipIcon sx={{opacity:0.5}}/>
               </Badge>
             </Button>
 
@@ -205,7 +205,7 @@ const Header = () => {
                 padding: "6px",
               }}
             >
-              <DarkModeOutlinedIcon color="#000" sx={{ fontWeight: 300 }} />
+              <DarkModeOutlinedIcon color="#000" sx={{opacity:0.5}} />
             </Button>
 
             {/* Notifications Dropdown */}
@@ -220,10 +220,10 @@ const Header = () => {
                 padding: "6px",
               }}
             >
-              <Badge badgeContent={3} color="error">
+              <Badge badgeContent={1} color="error">
                 <NotificationsNoneOutlinedIcon
                   color="#000"
-                  sx={{ fontWeight: 200 }}
+                  sx={{ opacity:0.5}}
                 />
               </Badge>
             </Button>

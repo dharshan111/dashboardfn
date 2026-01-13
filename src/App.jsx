@@ -9,16 +9,7 @@ import {
 import Contactheader from "./components/ContactSection/Contactheader";
 import Loginpage from "./components/ContactSection/LoginRegister/Loginpage";
 import Registerpage from "./components/ContactSection/LoginRegister/Registerpage";
-import Header from "./components/Dashboard/MainFolder/HeadSide/Header";
-// import Sidebar from "./components/Dashboard/MainFolder/HeadSide/Sidebar";
-import Barchart from "./components/Dashboard/MainFolder/HeadSide/Barchart";
-import PieCharts from "./components/Dashboard/MainFolder/HeadSide/Secondchart";
-import Centercard from "./components/Dashboard/MainFolder/HeadSide/Centercard";
-import ThirdCharts from "./components/Dashboard/MainFolder/HeadSide/ThirdCharts";
-import FourthCharts from "./components/Dashboard/MainFolder/HeadSide/FourthCharts";
-import Mapsection from "./components/Dashboard/MainFolder/HeadSide/Mapsection";
-import Databox from "./components/Dashboard/MainFolder/HeadSide/Databox";
-import Tablecontent from "./components/Dashboard/MainFolder/HeadSide/Tablecontent";
+import Mainfolder from "./components/Dashboard/MainFolder/Mainfolder";
 function App() {
   return (
     <>
@@ -26,15 +17,7 @@ function App() {
       {/* <Map /> */}
       {/* <Contact /> */}
 
-      <Header />
-      <Barchart />
-      <PieCharts />
-      <Centercard />
-      <ThirdCharts />
-      <FourthCharts />
-      <Mapsection />
-      <Tablecontent />
-      {/* <Databox /> */}
+      <Mainfolder sx={{width:"100%"}}/>
 
       {/* <Sidebar /> */}
 

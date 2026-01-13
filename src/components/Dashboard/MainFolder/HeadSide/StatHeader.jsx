@@ -8,7 +8,7 @@ export default function StatHeader({
   subtitle,
 }) {
   return (
-    <Box p={2}>
+    <Box p={2} sx={{ marginBottom:"24px",}}>
       <Box sx={{ display: "flex", gap: 2.5 }}>
         <Box>
           <Typography fontSize={18} fontWeight={500}>

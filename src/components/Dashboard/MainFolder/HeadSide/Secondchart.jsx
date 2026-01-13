@@ -39,11 +39,12 @@ export default function PaymentChart() {
   return (
     <Box
       sx={{
-        width: "200px",
+        width: "100%",
         padding: "10px",
         color: "#000",
         borderRadius: "20px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+        mt: 2,
       }}
     >
       <StatHeader
@@ -90,7 +91,6 @@ export default function PaymentChart() {
             "& .MuiChartsLegend-root": {
               display: "none",
             },
-          
           }}
         >
           <PieCenterLabel>Total</PieCenterLabel>
@@ -101,7 +101,12 @@ export default function PaymentChart() {
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
         <Typography
-          sx={{ opacity: 0.7, fontSize: "14px", textAlign: "center" }}
+          sx={{
+            opacity: 0.7,
+            fontSize: "14px",
+            textAlign: "center",
+            margin: "16px 0px 0px",
+          }}
         >
           $18k Profit more than <br /> month
         </Typography>

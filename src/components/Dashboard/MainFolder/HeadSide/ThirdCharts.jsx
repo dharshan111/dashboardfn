@@ -56,7 +56,7 @@ export default function PaymentChart() {
           <Typography sx={{ fontWeight: 600 }}>$98,500</Typography>
           <Typography sx={{ fontWeight: 600 }}>$1,22,900</Typography>
         </Stack>
-        <Box sx={{ width: "100%", m:1}}>
+        <Box sx={{ width: "100%",}}>
           <LinearProgress
             variant="determinate"
             value={25}

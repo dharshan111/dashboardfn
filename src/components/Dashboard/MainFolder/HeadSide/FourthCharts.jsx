@@ -32,6 +32,7 @@ export default function PaymentChart() {
         color: "#000",
         borderRadius: "20px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+        mt:2,
       }}
     >
       <StatHeader
@@ -42,7 +43,7 @@ export default function PaymentChart() {
         subtitle="Last 7 days"
       />
 
-      <Box sx={{ mt: 1, mb: 0 }}>
+      <Box sx={{ mt: 1, mb: "32px" }}>
         <LineChart
           sx={{
             // Hide all unnecessary elements
@@ -99,7 +100,7 @@ export default function PaymentChart() {
           ]}
           series={[
             {
-              data: [10, 25, 13, 21, 12, 21], // Added 7th value to match x-axis
+              data: [15, 33, 13, 21, 12, 21], // Added 7th value to match x-axis
               showMark: false, // Disable marks completely
               color: "#1976d2",
               curve: "monotoneX",
@@ -114,15 +115,15 @@ export default function PaymentChart() {
         />
       </Box>
 
-      <Box sx={{display:"flex", flexDirection:"column", gap:1,}}>
+      <Box sx={{display:"flex", flexDirection:"column", justifyContent:"space-between",gap:2, alignItems: "center"}}>
         <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-          <Box sx={{ display: "flex", gap: 2.5 }}>
+          <Box sx={{ display: "flex", gap: 5 }}>
             <Typography sx={{ opacity: 0.7, fontSize:"14px" }}>April 07 - April 14</Typography>
             <Typography sx={{ opacity: 0.7, fontSize:"14px" }} >6,380</Typography>
           </Box>
         </Box>
         <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-          <Box sx={{ display: "flex", gap: 8 }}>
+          <Box sx={{ display: "flex", gap: 10.3 }}>
             <Typography sx={{ opacity: 0.7, fontSize:"14px" }}>Last Week</Typography>
             <Typography sx={{ opacity: 0.7,fontSize:"14px" }}>4,298</Typography>
           </Box>

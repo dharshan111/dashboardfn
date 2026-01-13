@@ -44,7 +44,10 @@ const Centercard = () => {
           borderRadius: "10px",
           boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
           p: 3,
-          m: 5,
+          mt: 0,
+          mr: 0,
+          ml: 2,
+          mb:1,
         }}
       >
         <Typography sx={{ fontWeight: 500, fontSize: "19px" }}>
