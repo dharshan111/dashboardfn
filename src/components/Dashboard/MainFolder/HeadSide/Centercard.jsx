@@ -51,7 +51,7 @@ const Centercard = () => {
         }}
       >
         <Typography sx={{ fontWeight: 500, fontSize: "19px" }}>
-          Congratulations Mike
+          Congratulations Mike welcome
         </Typography>
         <Typography sx={{ fontSize: "14px" }}>
           You have done 38% more sales

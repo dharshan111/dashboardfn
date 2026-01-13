@@ -20,7 +20,7 @@ function App() {
       <Mainfolder sx={{width:"100%"}}/>
 
       {/* <Sidebar /> */}
-
+      
       {/* <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/register" />} />
