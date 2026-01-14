@@ -16,7 +16,7 @@ const Mapsection = () => {
       <Box
         sx={{
           width: "200px",
-          padding: "10px",
+          padding: "24px",
           color: "#000",
           borderRadius: "20px",
           boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
@@ -31,7 +31,8 @@ const Mapsection = () => {
               Top locations
             </Typography>
           </Box>
-          <Box></Box>
+          <Box>
+          </Box>
           <Box>
             <Box sx={{ width: "100%", m: 1 }}>
               <Stack direction="row" alignItems="center" spacing={2}>
@@ -42,6 +43,10 @@ const Mapsection = () => {
                   sx={{
                     flex: 1,
                     height: 5,
+                    backgroundColor: 'lightgrey',
+                    '& .MuiLinearProgress-bar': {
+                      backgroundColor: 'lightblue'
+                    }
                   }}
                 />
                 <Typography variant="body2">28%</Typography>
@@ -56,6 +61,10 @@ const Mapsection = () => {
                   sx={{
                     flex: 1,
                     height: 5,
+                    backgroundColor: 'lightgrey',
+                    '& .MuiLinearProgress-bar': {
+                      backgroundColor: 'blue'
+                    }
                   }}
                 />
                 <Typography variant="body2">21%</Typography>
@@ -70,6 +79,10 @@ const Mapsection = () => {
                   sx={{
                     flex: 1,
                     height: 5,
+                    backgroundColor: 'lightgrey',
+                    '& .MuiLinearProgress-bar': {
+                      backgroundColor: 'coral'
+                    }
                   }}
                 />
                 <Typography variant="body2">18%</Typography>
@@ -84,6 +97,10 @@ const Mapsection = () => {
                   sx={{
                     flex: 1,
                     height: 5,
+                    backgroundColor: 'lightgrey',
+                    '& .MuiLinearProgress-bar': {
+                      backgroundColor: 'orange'
+                    }
                   }}
                 />
                 <Typography variant="body2">12%</Typography>

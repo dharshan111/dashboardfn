@@ -104,21 +104,24 @@ const Header = () => {
 
   return (
     <>
-    
       <AppBar
-        position="static"
+        position="fixed"
         sx={{
           backgroundColor: "#fff",
           borderRadius: "15px",
-          mt: 2,
           mx: "auto",
-          maxWidth: "95%",
+          width: { xs: "calc(100% - 32px)", sm: "calc(100% - 300px)" }, // Adjust based on sidebar
+          left: { xs: "16px", sm: "276px" }, // Position relative to sidebar
+          right: "16px",
+          top: "16px",
+          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+          height: "70px", // Fixed height
         }}
       >
         <Toolbar
           sx={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "space-around",
             alignItems: "center",
           }}
         >
@@ -189,7 +192,7 @@ const Header = () => {
               }}
             >
               <Badge badgeContent={0} color="primary" showZero>
-                <CardMembershipIcon sx={{opacity:0.5}}/>
+                <CardMembershipIcon sx={{ opacity: 0.5 }} />
               </Badge>
             </Button>
 
@@ -205,7 +208,7 @@ const Header = () => {
                 padding: "6px",
               }}
             >
-              <DarkModeOutlinedIcon color="#000" sx={{opacity:0.5}} />
+              <DarkModeOutlinedIcon color="#000" sx={{ opacity: 0.5 }} />
             </Button>
 
             {/* Notifications Dropdown */}
@@ -218,14 +221,46 @@ const Header = () => {
                 fontWeight: 400,
                 minWidth: "auto",
                 padding: "6px",
+                position: "relative",
               }}
             >
-              <Badge badgeContent={1} color="error">
+              <Box>
                 <NotificationsNoneOutlinedIcon
                   color="#000"
-                  sx={{ opacity:0.5}}
+                  sx={{ opacity: 0.5 }}
                 />
-              </Badge>
+              </Box>
+              <Box
+                sx={{
+                  border: "1px solid green",
+                  width: "10px",
+                  height: "10px",
+                  borderRadius: "40px",
+                  position: "absolute",
+                  top: "4px",
+                  right: "1px",
+                  animation: "beat 0.3s infinite alternate",
+                  transformOrigin: "center",
+                  "@keyframes beat": {
+                    to: {
+                      transform: "translate(-10%, -10%) scale(0.1)",
+                      opacity: 0.2,
+                    },
+                  },
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "3px",
+                    height: "3px",
+                    borderRadius: "30px",
+                    position: "absolute",
+                    right: "3px",
+                    top: "3px",
+                    backgroundColor: "#4bd08b",
+                  }}
+                ></Box>
+              </Box>
             </Button>
 
             {/*profile view */}

@@ -9,6 +9,8 @@ const xLabels = ["M", "T", "W", "T", "F", "S", "S"];
 export default function StackedBarChart() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+  const isLaptop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <Box
@@ -18,6 +20,7 @@ export default function StackedBarChart() {
         color: "#000",
         borderRadius: "20px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+        mt: 10,
       }}
     >
       <StatHeader
@@ -29,7 +32,7 @@ export default function StackedBarChart() {
       />
 
       <BarChart
-        height={180}
+        height={isMobile ? 180 : 175}
         series={[
           {
             data: pData,
@@ -50,33 +53,33 @@ export default function StackedBarChart() {
             scaleType: "band",
             tickLabelStyle: {
               fill: "#000",
-              fontSize: "12px",
+              fontSize: isMobile ? "10px" : "12px",
               fontWeight: 500,
             },
             axisLine: {
-              stroke: "transparent", // Hide x-axis line
+              stroke: "transparent",
             },
             tickSize: 0,
           },
         ]}
         yAxis={[
           {
-            width: 0, // Hide y-axis width
+            width: 0,
             tickLabelStyle: {
-              fill: "transparent", // Hide y-axis labels
+              fill: "transparent",
               fontSize: 0,
             },
             axisLine: {
-              stroke: "transparent", // Hide y-axis line
+              stroke: "transparent",
             },
             tickSize: 0,
           },
         ]}
         grid={{
           vertical: false,
-          horizontal: false, // Remove all grid lines
+          horizontal: false,
         }}
-        borderRadius={8} // Rounded corners for bars
+        borderRadius={8}
         slotProps={{
           legend: {
             hidden: true,
@@ -84,18 +87,26 @@ export default function StackedBarChart() {
         }}
         sx={{
           width: "100%",
-          maxWidth: "200px",
+
+          // Responsive bar width based on screen size
+          "& .MuiBarElement-root": {
+            // Mobile: thinner bars
+            width: isMobile ? 8 : isTablet ? 12 : 12, 
+            rx: 8,
+            ry: 8,
+          },
+
+          // Make chart area fill the space
+          "& .MuiChartsAxis-directionX": {
+            scale: "band",
+            // Ensure all labels are visible
+            data: xLabels,
+          },
+
           // General text styling
           "& text": {
             fill: "#b4b4b4ff",
             fontWeight: 200,
-          },
-
-          // Bar styling - make bars thinner
-          "& .MuiBarElement-root": {
-            width: isMobile ? 5 : 10,
-            rx: 10,
-            ry: 10,
           },
 
           // Tooltip styling
@@ -107,11 +118,24 @@ export default function StackedBarChart() {
             },
           },
 
-          // X-axis labels only
+          // X-axis labels - ensure all are visible
           "& .MuiChartsAxis-tickLabel": {
             fill: "#000 !important",
-            fontSize: "12px",
+            fontSize: isMobile ? "10px" : "12px",
             fontWeight: 500,
+          },
+
+          // Fix for last label visibility
+          "& .MuiChartsAxis-directionX .MuiChartsAxis-tickLabel": {
+            opacity: 1,
+            visibility: "visible",
+          },
+
+          // Specific fix for the last label
+          "& .MuiChartsAxis-directionX .MuiChartsAxis-tickLabel:last-child": {
+            display: "block !important",
+            opacity: "1 !important",
+            visibility: "visible !important",
           },
 
           // Hide all axis lines
@@ -143,33 +167,49 @@ export default function StackedBarChart() {
         }}
       />
 
-      <Box sx={{mt:1, mb:1,}}>
-        <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+      <Box sx={{ mt: 1, mb: 1 }}>
+        <Box sx={{ display: "flex", gap: 1, alignItems: "center", mb: 1 }}>
           <Box
             sx={{
               borderRadius: "30px",
-              border: "2px solid #43baf1ff", // Add border to see the rounded corners
+              border: "2px solid #43baf1ff",
               width: 10,
               height: 10,
             }}
           ></Box>
-          <Box sx={{ display: "flex", gap: 12 }}>
-            <Typography sx={{ opacity: 0.7 }}>Paypal</Typography>
-            <Typography sx={{ opacity: 0.7 }}>52%</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Typography sx={{ opacity: 0.7, fontSize: "14px" }}>
+              Paypal
+            </Typography>
+            <Typography sx={{ opacity: 0.7, fontSize: "14px" }}>52%</Typography>
           </Box>
         </Box>
         <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
           <Box
             sx={{
               borderRadius: "30px",
-              border: "2px solid lightgrey", // Add border to see the rounded corners
+              border: "2px solid lightgrey",
               width: 10,
               height: 10,
             }}
           ></Box>
-          <Box sx={{ display: "flex", gap: 8 }}>
-            <Typography sx={{ opacity: 0.7 }}>Credit card</Typography>
-            <Typography sx={{ opacity: 0.7 }}>48%</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Typography sx={{ opacity: 0.7, fontSize: "14px" }}>
+              Credit card
+            </Typography>
+            <Typography sx={{ opacity: 0.7, fontSize: "14px" }}>48%</Typography>
           </Box>
         </Box>
       </Box>

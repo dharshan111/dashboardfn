@@ -31,7 +31,7 @@ const products = [
     avatar:
       "https://spike-nextjs-pro-main.vercel.app/images/products/product-5.png",
     avatarimg:
-      "	https://spike-nextjs-pro-main.vercel.app/images/profile/user1.jpg",
+      "https://spike-nextjs-pro-main.vercel.app/images/profile/user1.jpg",
     customerName: "John Smith",
     email: "john.smith@email.com",
     rating: 4.5,
@@ -45,7 +45,7 @@ const products = [
     avatar:
       "https://spike-nextjs-pro-main.vercel.app/images/products/product-6.png",
     avatarimg:
-      "	https://spike-nextjs-pro-main.vercel.app/images/profile/user2.jpg",
+      "https://spike-nextjs-pro-main.vercel.app/images/profile/user2.jpg",
     customerName: "Emma Johnson",
     email: "emma.j@email.com",
     rating: 4.0,
@@ -59,7 +59,7 @@ const products = [
     avatar:
       "https://spike-nextjs-pro-main.vercel.app/images/products/product-7.png",
     avatarimg:
-      "	https://spike-nextjs-pro-main.vercel.app/images/profile/user3.jpg",
+      "https://spike-nextjs-pro-main.vercel.app/images/profile/user3.jpg",
     customerName: "Michael Brown",
     email: "michael.b@email.com",
     rating: 5.0,
@@ -73,7 +73,7 @@ const products = [
     avatar:
       "https://spike-nextjs-pro-main.vercel.app/images/products/product-8.png",
     avatarimg:
-      "	https://spike-nextjs-pro-main.vercel.app/images/profile/user4.jpg",
+      "https://spike-nextjs-pro-main.vercel.app/images/profile/user4.jpg",
     customerName: "Sarah Wilson",
     email: "sarah.w@email.com",
     rating: 3.5,
@@ -87,7 +87,7 @@ const products = [
     avatar:
       "https://spike-nextjs-pro-main.vercel.app/images/products/product-9.png",
     avatarimg:
-      "	https://spike-nextjs-pro-main.vercel.app/images/profile/user5.jpg",
+      "https://spike-nextjs-pro-main.vercel.app/images/profile/user5.jpg",
     customerName: "David Lee",
     email: "david.lee@email.com",
     rating: 4.8,
@@ -258,11 +258,13 @@ export default function EnhancedTable() {
   return (
     <Paper
       sx={{
-        width: "100%",
-        padding: "10px",
+        width: "100%", // Changed to 100%
+        maxWidth: "985px", // Added maxWidth constraint
+        padding: "16px", // Slightly increased padding
         color: "#000",
         borderRadius: "20px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+        overflow: "hidden", // Prevent content from overflowing
       }}
     >
       {/* Header */}
@@ -336,8 +338,12 @@ export default function EnhancedTable() {
       </Box>
 
       {/* Table with horizontal scroll only */}
-      <TableContainer sx={{ maxHeight: 600, overflowY: "hidden" }}>
-        <Table sx={{ minWidth: 1200 }}>
+      <TableContainer sx={{ 
+        maxHeight: 600, 
+        overflowY: "hidden", // Changed to auto for vertical scrolling if needed
+        overflowX: "auto", // Enable horizontal scrolling
+      }}>
+        <Table sx={{ minWidth: 1000 }}> {/* Reduced from 1200 to 1000 */}
           <TableHead>
             <TableRow>
               <TableCell padding="checkbox" sx={{ width: "5%" }}>
@@ -348,22 +354,22 @@ export default function EnhancedTable() {
                   color="primary"
                 />
               </TableCell>
-              <TableCell sx={{ width: "20%" }}>
+              <TableCell sx={{ width: "25%", minWidth: "250px" }}> {/* Increased width */}
                 <SortableHeader label="Products" sortKey="name" />
               </TableCell>
-              <TableCell sx={{ width: "20%" }}>
+              <TableCell sx={{ width: "20%", minWidth: "200px" }}>
                 <SortableHeader label="Customers" sortKey="customerName" />
               </TableCell>
-              <TableCell sx={{ width: "30%" }}>
+              <TableCell sx={{ width: "30%", minWidth: "300px" }}>
                 <SortableHeader label="Review" sortKey="rating" />
               </TableCell>
-              <TableCell sx={{ width: "10%", textAlign: "center" }}>
+              <TableCell sx={{ width: "10%", textAlign: "center", minWidth: "100px" }}>
                 <SortableHeader label="Status" sortKey="status" />
               </TableCell>
-              <TableCell sx={{ width: "10%", textAlign: "center" }}>
+              <TableCell sx={{ width: "7%", textAlign: "center", minWidth: "80px" }}>
                 <SortableHeader label="Date" sortKey="date" />
               </TableCell>
-              <TableCell sx={{ width: "5%", textAlign: "center" }}>
+              <TableCell sx={{ width: "3%", textAlign: "center", minWidth: "50px" }}>
                 <Typography variant="body2" fontWeight="bold">
                   Action
                 </Typography>
@@ -399,33 +405,62 @@ export default function EnhancedTable() {
                 </TableCell>
 
                 {/* Products Column */}
-                <TableCell>
+                <TableCell sx={{ width: "25%" }}>
                   <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                     <Avatar
                       src={row.avatar}
                       sx={{ width: 40, height: 40 }}
                       alt={row.name}
                     />
-                    <Typography variant="body2" fontWeight="medium">
+                    <Typography 
+                      variant="body2" 
+                      fontWeight="medium"
+                      sx={{
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                        maxWidth: "200px"
+                      }}
+                    >
                       {row.name}
                     </Typography>
                   </Box>
                 </TableCell>
 
                 {/* Customers Column */}
-                <TableCell>
-                  <Box sx={{ display: "flex" }}>
-                    <Typography>
-                      <Avatar
-                        src={row.avatarimg}
-                        sx={{ width: 40, height: 40 }}
-                      />
-                    </Typography>
-                    <Box sx={{ display: "flex", flexDirection: "column" }}>
-                      <Typography variant="body2" fontWeight="medium">
+                <TableCell sx={{ width: "20%" }}>
+                  <Box sx={{ display: "flex", gap: 2 }}>
+                    <Avatar
+                      src={row.avatarimg}
+                      sx={{ width: 40, height: 40 }}
+                    />
+                    <Box sx={{ 
+                      display: "flex", 
+                      flexDirection: "column",
+                      overflow: "hidden"
+                    }}>
+                      <Typography 
+                        variant="body2" 
+                        fontWeight="medium"
+                        sx={{
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                          maxWidth: "150px"
+                        }}
+                      >
                         {row.customerName}
                       </Typography>
-                      <Typography variant="caption" color="text.secondary">
+                      <Typography 
+                        variant="caption" 
+                        color="text.secondary"
+                        sx={{
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                          maxWidth: "150px"
+                        }}
+                      >
                         {row.email}
                       </Typography>
                     </Box>
@@ -433,7 +468,7 @@ export default function EnhancedTable() {
                 </TableCell>
 
                 {/* Review Column */}
-                <TableCell>
+                <TableCell sx={{ width: "30%" }}>
                   <Box>
                     <Box
                       sx={{
@@ -450,26 +485,38 @@ export default function EnhancedTable() {
                         readOnly
                       />
                     </Box>
-                    <Typography variant="caption" sx={{ fontSize: "15px" }}>
+                    <Typography 
+                      variant="caption" 
+                      sx={{ 
+                        fontSize: "15px",
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        lineHeight: "1.4",
+                        maxHeight: "2.8em"
+                      }}
+                    >
                       {row.review}
                     </Typography>
                   </Box>
                 </TableCell>
 
                 {/* Status Column */}
-                <TableCell align="center">
+                <TableCell align="center" sx={{ width: "10%" }}>
                   <StatusChip status={row.status} />
                 </TableCell>
 
                 {/* Date Column */}
-                <TableCell align="center">
+                <TableCell align="center" sx={{ width: "7%" }}>
                   <Typography variant="body2" color="text.secondary">
                     {row.date}
                   </Typography>
                 </TableCell>
 
                 {/* Action Column */}
-                <TableCell align="center">
+                <TableCell align="center" sx={{ width: "3%" }}>
                   <Button
                     sx={{
                       minWidth: "auto",

@@ -17,10 +17,8 @@ function App() {
       {/* <Map /> */}
       {/* <Contact /> */}
 
-      <Mainfolder sx={{width:"100%"}}/>
+      <Mainfolder />
 
-      {/* <Sidebar /> */}
-      
       {/* <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/register" />} />

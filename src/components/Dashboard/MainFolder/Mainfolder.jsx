@@ -9,36 +9,56 @@ import FourthCharts from "./HeadSide/FourthCharts";
 import Mapsection from "./HeadSide/Mapsection";
 import Tablecontent from "./HeadSide/Tablecontent";
 import Databox from "./HeadSide/Databox";
+import Sidebar from "./HeadSide/Sidebar"; // Make sure this has default export
 
 const Mainfolder = () => {
+
   return (
-    <>
-      <Grid item xs={12}>
+    <Box sx={{ display: "flex" }}>
+      {/* Sidebar - Fixed position */}
+      <Sidebar sx={{ mt: 10 }} />
+
+      {/* Main content */}
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        {/* Header */}
         <Header />
-      </Grid>
 
-      <Box sx={{ p: 3 }}>
-        {/* Header - Full width */}
+        {/* Dashboard content */}
         <Grid container spacing={3}>
-          {/* First Row: Barchart, Centercard, ThirdCharts */}
-          <Grid item xs={12} md={4}>
-            <Barchart />
-            <PieCharts />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Centercard />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <ThirdCharts />
-            <FourthCharts />
+          {/* First Row: Barchart & PieCharts */}
+          <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
+            <Grid item xs={12} md={4} size={2.5}>
+              <Barchart />
+              <PieCharts />
+            </Grid>
+
+            {/* Centercard */}
+            <Grid item xs={12} md={4} size={6.7}>
+              <Centercard />
+            </Grid>
+
+            {/* ThirdCharts & FourthCharts */}
+            <Grid item xs={12} md={4} size={2.5}>
+              <ThirdCharts />
+              <FourthCharts />
+            </Grid>
           </Grid>
 
-          {/* Third Row: Mapsection (left) and Tablecontent (right) */}
-          <Grid item xs={12} md={6}>
-            <Mapsection />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Tablecontent />
+          {/* Second Row: Mapsection and Tablecontent */}
+          <Grid
+            container
+            columns={{ xs: 4, sm: 8, md: 12 }}
+            item
+            xs={12}
+            md={6}
+            size={12}
+          >
+            <Grid item xs={12} md={4} size={3}>
+              <Mapsection />
+            </Grid>
+            <Grid item xs={12} md={4} size={8.7}>
+              <Tablecontent />
+            </Grid>
           </Grid>
 
           {/* Databox - Full width */}
@@ -47,7 +67,7 @@ const Mainfolder = () => {
           </Grid>
         </Grid>
       </Box>
-    </>
+    </Box>
   );
 };
 

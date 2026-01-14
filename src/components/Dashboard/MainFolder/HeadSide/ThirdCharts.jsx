@@ -42,6 +42,7 @@ export default function PaymentChart() {
         color: "#000",
         borderRadius: "20px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+        mt:10,
       }}
     >
       <StatHeader
@@ -66,7 +67,7 @@ export default function PaymentChart() {
         <Typography sx={{ fontWeight: 300, m: 1 }}>
           Coupons used: 18/22
         </Typography>
-        <Box sx={{ mt: 8, }}>
+        <Box sx={{ mt: 10, }}>
           <Typography sx={{fontWeight:510, m:1}}>
             Recent Purchasers
             <AvatarGroup total={+12}>

@@ -9,7 +9,7 @@ export default function StatHeader({
 }) {
   return (
     <Box p={2} sx={{ marginBottom:"24px",}}>
-      <Box sx={{ display: "flex", gap: 2.5 }}>
+      <Box sx={{ display: "flex", justifyContent:"space-between", alignItems:"center" }}>
         <Box>
           <Typography fontSize={18} fontWeight={500}>
             {title}
