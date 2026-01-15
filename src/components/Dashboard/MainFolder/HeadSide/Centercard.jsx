@@ -65,7 +65,7 @@ const Centercard = () => {
         >
           <Box>
             <Box>
-              <CardContent sx={{ p: 2 }}>
+              <CardContent >
                 <Box
                   sx={{
                     display: "flex",
@@ -246,7 +246,7 @@ const Centercard = () => {
                 aria-controls="month-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
-                sx={{ border: "1px solid lightgrey", borderRadius: "25px" }}
+                sx={{ border: "1px solid lightgrey", borderRadius: "25px", color:"grey", textTransform:"none", }}
               >
                 {selectedMonth}
               </Button>

@@ -21,7 +21,10 @@ const Mainfolder = () => {
       {/* Main content */}
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {/* Header */}
-        <Header />
+        <Grid item xs={12} md={4}>
+          <Header />
+        </Grid>
+        
 
         {/* Dashboard content */}
         <Grid container spacing={3}>

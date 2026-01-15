@@ -55,6 +55,9 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
   const [openUser, setUser] = useState(false);
   const [openUsertwo, setUsertwo] = useState(false);
 
+  // Track active item
+  const [activeItem, setActiveItem] = useState("Dashboard 1");
+
   const drawerWidth = 260;
 
   const handleHomeClick = () => {
@@ -79,6 +82,10 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
 
   const handleUserTwoClick = () => {
     setUsertwo(!openUsertwo);
+  };
+
+  const handleItemClick = (itemName) => {
+    setActiveItem(itemName);
   };
 
   const drawerContent = (
@@ -159,18 +166,115 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
           </Typography>
 
           <List sx={{ p: 0 }}>
-            <ListItemButton sx={{ gap: 2, p: 1, ml: 3 }}>
-              <DashboardIcon sx={{ color: "#666" }} />
+            {/* Dashboard 1 - Active by default */}
+            <ListItemButton
+              onClick={() => handleItemClick("Dashboard 1")}
+              sx={{
+                gap: 2,
+                p: 1,
+                ml: 3,
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: "20px",
+                backgroundColor:
+                  activeItem === "Dashboard 1" ? "#e3f2fd" : "transparent",
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+
+                  backgroundColor:
+                    activeItem === "Dashboard 1" ? "#1976d2" : "transparent",
+                  borderTopRightRadius: "4px",
+                  borderBottomRightRadius: "4px",
+                },
+                "&:hover": {
+                  backgroundColor: "#ff7f5033", // Coral color with transparency
+                  "&::before": {
+                    backgroundColor: "#FF7F50", // Coral color
+                    width: "6px",
+                    transition: "all 0.3s ease",
+                  },
+                  "& .MuiListItemIcon-root": {
+                    color: "#FF7F50", // Coral color on hover
+                  },
+                  "& .MuiListItemText-primary": {
+                    color: "#FF7F50", // Coral color on hover
+                  },
+                },
+              }}
+            >
+              <DashboardIcon
+                sx={{
+                  color: activeItem === "Dashboard 1" ? "#1976d2" : "#666",
+                  transition: "color 0.3s ease",
+            
+                }}
+              />
               <ListItemText
                 primary="Dashboard 1"
-                primaryTypographyProps={{ fontSize: "0.9rem" }}
+                primaryTypographyProps={{
+                  fontSize: "0.9rem",
+                  color: activeItem === "Dashboard 1" ? "#1976d2" : "#666",
+                  fontWeight: activeItem === "Dashboard 1" ? 600 : 400,
+                  transition: "color 0.3s ease",
+                }}
               />
             </ListItemButton>
-            <ListItemButton sx={{ gap: 2, p: 1, ml: 3 }}>
-              <DashboardIcon sx={{ color: "#666" }} />
+
+            {/* Dashboard 2 */}
+            <ListItemButton
+              onClick={() => handleItemClick("Dashboard 2")}
+              sx={{
+                gap: 2,
+                p: 1,
+                ml: 3,
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: "20px",
+                backgroundColor:
+                  activeItem === "Dashboard 2" ? "#e3f2fd" : "transparent",
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  backgroundColor:
+                    activeItem === "Dashboard 2" ? "#1976d2" : "transparent",
+                  borderTopRightRadius: "4px",
+                  borderBottomRightRadius: "4px",
+                },
+                "&:hover": {
+                  backgroundColor: "#ff7f5033", // Coral color with transparency
+                  "&::before": {
+                    backgroundColor: "#FF7F50", // Coral color
+                    width: "6px",
+                    transition: "all 0.3s ease",
+                  },
+                  "& .MuiListItemIcon-root": {
+                    color: "#FF7F50", // Coral color on hover
+                  },
+                  "& .MuiListItemText-primary": {
+                    color: "#FF7F50", // Coral color on hover
+                  },
+                },
+              }}
+            >
+              <DashboardIcon
+                sx={{
+                  color: activeItem === "Dashboard 2" ? "#1976d2" : "#666",
+                  transition: "color 0.3s ease",
+                }}
+              />
               <ListItemText
                 primary="Dashboard 2"
-                primaryTypographyProps={{ fontSize: "0.9rem" }}
+                primaryTypographyProps={{
+                  fontSize: "0.9rem",
+                  color: activeItem === "Dashboard 2" ? "#1976d2" : "#666",
+                  fontWeight: activeItem === "Dashboard 2" ? 600 : 400,
+                  transition: "color 0.3s ease",
+                }}
               />
             </ListItemButton>
 
@@ -181,12 +285,38 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                   onClick={handleHomeClick}
                   sx={{
                     ml: 2,
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: "20px",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+
+                      backgroundColor: "transparent",
+                      borderTopRightRadius: "4px",
+                      borderBottomRightRadius: "4px",
+                      transition: "all 0.3s ease",
+                    },
                     "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.04)",
+                      backgroundColor: "#ff7f5033",
+                      "&::before": {
+                        backgroundColor: "#FF7F50",
+                        width: "6px",
+                      },
+                      "& .MuiListItemIcon-root": {
+                        color: "#FF7F50",
+                      },
+                      "& .MuiListItemText-primary": {
+                        color: "#FF7F50",
+                      },
                     },
                   }}
                 >
-                  <ListItemIcon sx={{ minWidth: 40 }}>
+                  <ListItemIcon
+                    sx={{ minWidth: 40, transition: "color 0.3s ease" }}
+                  >
                     <HomeIcon />
                   </ListItemIcon>
                   <ListItemText primary="Frontend Pages" />
@@ -207,14 +337,41 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                   ].map((item, index) => (
                     <ListItemButton
                       key={index}
+                      onClick={() => handleItemClick(item)}
                       sx={{
                         padding: "10px 20px 10px 56px",
+                        position: "relative",
+                        overflow: "hidden",
+                        borderRadius: "20px",
+                        margin: "2px 0",
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          left: 0,
+                          top: 0,
+
+                          width: activeItem === item ? "4px" : "0px",
+                          backgroundColor:
+                            activeItem === item ? "#1976d2" : "transparent",
+                          borderTopRightRadius: "4px",
+                          borderBottomRightRadius: "4px",
+                          transition: "all 0.3s ease",
+                        },
                         "&:hover": {
-                          backgroundColor: "rgba(0, 0, 0, 0.04)",
+                          backgroundColor: "lightgrey",
+                          "&::before": {
+                            width: "6px",
+                          },                        
                         },
                       }}
                     >
-                      <ListItemIcon sx={{ minWidth: 36, color: "#666" }}>
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 36,
+                          color: "#666",
+                          transition: "color 0.3s ease",
+                        }}
+                      >
                         <FiberManualRecordIcon
                           sx={{ fontSize: "12px", color: "lightgrey" }}
                         />
@@ -223,7 +380,9 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                         primary={item}
                         primaryTypographyProps={{
                           fontSize: "0.9rem",
-                          color: "#666",
+                          color: activeItem === item ? "#1976d2" : "#666",
+                          fontWeight: activeItem === item ? 600 : 400,
+                          transition: "color 0.3s ease",
                         }}
                       />
                     </ListItemButton>
@@ -244,20 +403,46 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
             >
               APPS
             </Typography>
+
             {/* Apps Section in HOME area */}
             <ListItem disablePadding>
               <ListItemButton
                 onClick={handleAppsClick}
                 sx={{
                   gap: 2,
-                  p: 2,
+
                   ml: 2,
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "20px",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+                    backgroundColor: "transparent",
+                    borderTopRightRadius: "4px",
+                    borderBottomRightRadius: "4px",
+                    transition: "all 0.3s ease",
+                  },
                   "&:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.04)",
+                    backgroundColor: "#ff7f5033",
+                    "&::before": {
+                      backgroundColor: "#FF7F50",
+                      width: "6px",
+                    },
+                    "& .MuiListItemIcon-root": {
+                      color: "#FF7F50",
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "#FF7F50",
+                    },
                   },
                 }}
               >
-                <AppsIcon sx={{ color: "#666" }} />
+                <AppsIcon
+                  sx={{ color: "#666", transition: "color 0.3s ease" }}
+                />
                 <ListItemText
                   primary="Blogs"
                   primaryTypographyProps={{ fontSize: "0.9rem" }}
@@ -270,59 +455,169 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
             <Collapse in={openApps} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 <ListItemButton
+                  onClick={() => handleItemClick("Contacts")}
                   sx={{
                     padding: "10px 20px 10px 56px",
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: "20px",
+                    margin: "2px 0",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+
+                      width: activeItem === "Contacts" ? "4px" : "0px",
+                      backgroundColor:
+                        activeItem === "Contacts" ? "#1976d2" : "transparent",
+                      borderTopRightRadius: "4px",
+                      borderBottomRightRadius: "4px",
+                      transition: "all 0.3s ease",
+                    },
                     "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.04)",
+                      backgroundColor: "#ff7f5033",
+                      "&::before": {
+                        backgroundColor: "#FF7F50",
+                        width: "6px",
+                      },
+                      "& .MuiListItemIcon-root": {
+                        color: "#FF7F50",
+                      },
+                      "& .MuiListItemText-primary": {
+                        color: "#FF7F50",
+                      },
                     },
                   }}
                 >
-                  <ListItemIcon sx={{ minWidth: 36, color: "#666" }}>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 36,
+                      color: "#666",
+                      transition: "color 0.3s ease",
+                    }}
+                  >
                     <ContactsIcon sx={{ fontSize: "1rem" }} />
                   </ListItemIcon>
                   <ListItemText
                     primary="Contacts"
                     primaryTypographyProps={{
                       fontSize: "0.9rem",
-                      color: "#666",
+                      color: activeItem === "Contacts" ? "#1976d2" : "#666",
+                      fontWeight: activeItem === "Contacts" ? 600 : 400,
+                      transition: "color 0.3s ease",
                     }}
                   />
                 </ListItemButton>
+
                 <ListItemButton
+                  onClick={() => handleItemClick("Posts")}
                   sx={{
                     padding: "10px 20px 10px 56px",
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: "20px",
+                    margin: "2px 0",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+
+                      width: activeItem === "Posts" ? "4px" : "0px",
+                      backgroundColor:
+                        activeItem === "Posts" ? "#1976d2" : "transparent",
+                      borderTopRightRadius: "4px",
+                      borderBottomRightRadius: "4px",
+                      transition: "all 0.3s ease",
+                    },
                     "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.04)",
+                      backgroundColor: "#ff7f5033",
+                      "&::before": {
+                        backgroundColor: "#FF7F50",
+                        width: "6px",
+                      },
+                      "& .MuiListItemIcon-root": {
+                        color: "#FF7F50",
+                      },
+                      "& .MuiListItemText-primary": {
+                        color: "#FF7F50",
+                      },
                     },
                   }}
                 >
-                  <ListItemIcon sx={{ minWidth: 36, color: "#666" }}>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 36,
+                      color: "#666",
+                      transition: "color 0.3s ease",
+                    }}
+                  >
                     <BlogIcon sx={{ fontSize: "1rem" }} />
                   </ListItemIcon>
                   <ListItemText
                     primary="Posts"
                     primaryTypographyProps={{
                       fontSize: "0.9rem",
-                      color: "#666",
+                      color: activeItem === "Posts" ? "#1976d2" : "#666",
+                      fontWeight: activeItem === "Posts" ? 600 : 400,
+                      transition: "color 0.3s ease",
                     }}
                   />
                 </ListItemButton>
+
                 <ListItemButton
+                  onClick={() => handleItemClick("Details")}
                   sx={{
                     padding: "10px 20px 10px 56px",
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: "20px",
+                    margin: "2px 0",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+
+                      width: activeItem === "Details" ? "4px" : "0px",
+                      backgroundColor:
+                        activeItem === "Details" ? "#1976d2" : "transparent",
+                      borderTopRightRadius: "4px",
+                      borderBottomRightRadius: "4px",
+                      transition: "all 0.3s ease",
+                    },
                     "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.04)",
+                      backgroundColor: "#ff7f5033",
+                      "&::before": {
+                        backgroundColor: "#FF7F50",
+                        width: "6px",
+                      },
+                      "& .MuiListItemIcon-root": {
+                        color: "#FF7F50",
+                      },
+                      "& .MuiListItemText-primary": {
+                        color: "#FF7F50",
+                      },
                     },
                   }}
                 >
-                  <ListItemIcon sx={{ minWidth: 36, color: "#666" }}>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 36,
+                      color: "#666",
+                      transition: "color 0.3s ease",
+                    }}
+                  >
                     <EcommerceIcon sx={{ fontSize: "1rem" }} />
                   </ListItemIcon>
                   <ListItemText
                     primary="Details"
                     primaryTypographyProps={{
                       fontSize: "0.9rem",
-                      color: "#666",
+                      color: activeItem === "Details" ? "#1976d2" : "#666",
+                      fontWeight: activeItem === "Details" ? 600 : 400,
+                      transition: "color 0.3s ease",
                     }}
                   />
                 </ListItemButton>
@@ -337,12 +632,39 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                 onClick={handleEcomClick}
                 sx={{
                   ml: 2,
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "20px",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+
+                    width: "4px",
+                    backgroundColor: "transparent",
+                    borderTopRightRadius: "4px",
+                    borderBottomRightRadius: "4px",
+                    transition: "all 0.3s ease",
+                  },
                   "&:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.04)",
+                    backgroundColor: "#ff7f5033",
+                    "&::before": {
+                      backgroundColor: "#FF7F50",
+                      width: "6px",
+                    },
+                    "& .MuiListItemIcon-root": {
+                      color: "#FF7F50",
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "#FF7F50",
+                    },
                   },
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 40 }}>
+                <ListItemIcon
+                  sx={{ minWidth: 40, transition: "color 0.3s ease" }}
+                >
                   <ShoppingCart />
                 </ListItemIcon>
                 <ListItemText primary="Ecommerce" />
@@ -363,14 +685,48 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                 ].map((item, index) => (
                   <ListItemButton
                     key={index}
+                    onClick={() => handleItemClick(item)}
                     sx={{
                       padding: "10px 20px 10px 56px",
+                      position: "relative",
+                      overflow: "hidden",
+                      borderRadius: "20px",
+                      margin: "2px 0",
+                      "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+
+                        width: activeItem === item ? "4px" : "0px",
+                        backgroundColor:
+                          activeItem === item ? "#1976d2" : "transparent",
+                        borderTopRightRadius: "4px",
+                        borderBottomRightRadius: "4px",
+                        transition: "all 0.3s ease",
+                      },
                       "&:hover": {
-                        backgroundColor: "rgba(0, 0, 0, 0.04)",
+                        backgroundColor: "#ff7f5033",
+                        "&::before": {
+                          backgroundColor: "#FF7F50",
+                          width: "6px",
+                        },
+                        "& .MuiListItemIcon-root": {
+                          color: "#FF7F50",
+                        },
+                        "& .MuiListItemText-primary": {
+                          color: "#FF7F50",
+                        },
                       },
                     }}
                   >
-                    <ListItemIcon sx={{ minWidth: 36, color: "#666" }}>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 36,
+                        color: "#666",
+                        transition: "color 0.3s ease",
+                      }}
+                    >
                       <FiberManualRecordIcon
                         sx={{ fontSize: "12px", color: "lightgrey" }}
                       />
@@ -379,7 +735,9 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                       primary={item}
                       primaryTypographyProps={{
                         fontSize: "0.9rem",
-                        color: "#666",
+                        color: activeItem === item ? "#1976d2" : "#666",
+                        fontWeight: activeItem === item ? 600 : 400,
+                        transition: "color 0.3s ease",
                       }}
                     />
                   </ListItemButton>
@@ -387,11 +745,59 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
               </List>
             </Collapse>
 
-            <ListItemButton sx={{ gap: 2, p: 1, ml: 3 }}>
-              <ChatBubbleOutline sx={{ color: "#666" }} />
+            {/* Chats with lightgreen background when active */}
+            <ListItemButton
+              onClick={() => handleItemClick("Chats")}
+              sx={{
+                gap: 2,
+                p: 1,
+                ml: 3,
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: "20px",
+                backgroundColor:
+                  activeItem === "Chats" ? "#90ee9033" : "transparent", // Light green with transparency
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+
+                  width: activeItem === "Chats" ? "4px" : "0px",
+                  backgroundColor:
+                    activeItem === "Chats" ? "#90EE90" : "transparent", // Light green
+                  borderTopRightRadius: "4px",
+                  borderBottomRightRadius: "4px",
+                  transition: "all 0.3s ease",
+                },
+                "&:hover": {
+                  backgroundColor: "#ff7f5033",
+                  "&::before": {
+                    backgroundColor: "#FF7F50",
+                    width: "6px",
+                  },
+               
+                  "& .MuiListItemText-primary": {
+                    color: "#FF7F50",
+                  },
+                
+                },
+              }}
+            >
+              <ChatBubbleOutline
+                sx={{
+                  color: activeItem === "Chats" ? "#90EE90" : "#666",
+                  transition: "color 0.3s ease",
+                }}
+              />
               <ListItemText
                 primary="Chats"
-                primaryTypographyProps={{ fontSize: "0.9rem" }}
+                primaryTypographyProps={{
+                  fontSize: "0.9rem",
+                  color: activeItem === "Chats" ? "#90EE90" : "#666",
+                  fontWeight: activeItem === "Chats" ? 600 : 400,
+                  transition: "color 0.3s ease",
+                }}
               />
             </ListItemButton>
           </List>
@@ -403,12 +809,38 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                 onClick={handleUserClick}
                 sx={{
                   ml: 2,
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "20px",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+
+                    backgroundColor: "transparent",
+                    borderTopRightRadius: "4px",
+                    borderBottomRightRadius: "4px",
+                    transition: "all 0.3s ease",
+                  },
                   "&:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.04)",
+                    backgroundColor: "#ff7f5033",
+                    "&::before": {
+                      backgroundColor: "#FF7F50",
+                      width: "6px",
+                    },
+                    "& .MuiListItemIcon-root": {
+                      color: "#FF7F50",
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "#FF7F50",
+                    },
                   },
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 40 }}>
+                <ListItemIcon
+                  sx={{ minWidth: 40, transition: "color 0.3s ease" }}
+                >
                   <UsersIcon />
                 </ListItemIcon>
                 <ListItemText primary="Users" />
@@ -422,14 +854,48 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                   (item, index) => (
                     <ListItemButton
                       key={index}
+                      onClick={() => handleItemClick(item)}
                       sx={{
                         padding: "10px 20px 10px 56px",
+                        position: "relative",
+                        overflow: "hidden",
+                        borderRadius: "20px",
+                        margin: "2px 0",
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          left: 0,
+                          top: 0,
+
+                          width: activeItem === item ? "4px" : "0px",
+                          backgroundColor:
+                            activeItem === item ? "#1976d2" : "transparent",
+                          borderTopRightRadius: "4px",
+                          borderBottomRightRadius: "4px",
+                          transition: "all 0.3s ease",
+                        },
                         "&:hover": {
-                          backgroundColor: "rgba(0, 0, 0, 0.04)",
+                          backgroundColor: "#ff7f5033",
+                          "&::before": {
+                            backgroundColor: "#FF7F50",
+                            width: "6px",
+                          },
+                          "& .MuiListItemIcon-root": {
+                            color: "#FF7F50",
+                          },
+                          "& .MuiListItemText-primary": {
+                            color: "#FF7F50",
+                          },
                         },
                       }}
                     >
-                      <ListItemIcon sx={{ minWidth: 36, color: "#666" }}>
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 36,
+                          color: "#666",
+                          transition: "color 0.3s ease",
+                        }}
+                      >
                         <FiberManualRecordIcon
                           sx={{ fontSize: "12px", color: "lightgrey" }}
                         />
@@ -438,7 +904,9 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                         primary={item}
                         primaryTypographyProps={{
                           fontSize: "0.9rem",
-                          color: "#666",
+                          color: activeItem === item ? "#1976d2" : "#666",
+                          fontWeight: activeItem === item ? 600 : 400,
+                          transition: "color 0.3s ease",
                         }}
                       />
                     </ListItemButton>
@@ -455,13 +923,39 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                 onClick={handleUserTwoClick}
                 sx={{
                   ml: 2,
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "20px",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+
+                    backgroundColor: "transparent",
+                    borderTopRightRadius: "4px",
+                    borderBottomRightRadius: "4px",
+                    transition: "all 0.3s ease",
+                  },
                   "&:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.04)",
+                    backgroundColor: "#ff7f5033",
+                    "&::before": {
+                      backgroundColor: "#FF7F50",
+                      width: "6px",
+                    },
+                    "& .MuiListItemIcon-root": {
+                      color: "#FF7F50",
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "#FF7F50",
+                    },
                   },
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 40 }}>
-                  <HomeIcon />
+                <ListItemIcon
+                  sx={{ minWidth: 40, transition: "color 0.3s ease" }}
+                >
+                  <HomeIcon sx={{fontSize:"1rem"}}/>
                 </ListItemIcon>
                 <ListItemText primary="Users v2" />
                 {openUsertwo ? <ExpandLess /> : <ExpandMore />}
@@ -474,14 +968,48 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                   (item, index) => (
                     <ListItemButton
                       key={index}
+                      onClick={() => handleItemClick(item)}
                       sx={{
                         padding: "10px 20px 10px 56px",
+                        position: "relative",
+                        overflow: "hidden",
+                        borderRadius: "20px",
+                        margin: "2px 0",
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          left: 0,
+                          top: 0,
+
+                          width: activeItem === item ? "4px" : "0px",
+                          backgroundColor:
+                            activeItem === item ? "#1976d2" : "transparent",
+                          borderTopRightRadius: "4px",
+                          borderBottomRightRadius: "4px",
+                          transition: "all 0.3s ease",
+                        },
                         "&:hover": {
-                          backgroundColor: "rgba(0, 0, 0, 0.04)",
+                          backgroundColor: "#ff7f5033",
+                          "&::before": {
+                            backgroundColor: "#FF7F50",
+                            width: "6px",
+                          },
+                          "& .MuiListItemIcon-root": {
+                            color: "#FF7F50",
+                          },
+                          "& .MuiListItemText-primary": {
+                            color: "#FF7F50",
+                          },
                         },
                       }}
                     >
-                      <ListItemIcon sx={{ minWidth: 36, color: "#666" }}>
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 36,
+                          color: "#666",
+                          transition: "color 0.3s ease",
+                        }}
+                      >
                         <FiberManualRecordIcon
                           sx={{ fontSize: "12px", color: "lightgrey" }}
                         />
@@ -490,7 +1018,9 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                         primary={item}
                         primaryTypographyProps={{
                           fontSize: "0.9rem",
-                          color: "#666",
+                          color: activeItem === item ? "#1976d2" : "#666",
+                          fontWeight: activeItem === item ? 600 : 400,
+                          transition: "color 0.3s ease",
                         }}
                       />
                     </ListItemButton>
@@ -498,43 +1028,98 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                 )}
               </List>
             </Collapse>
-            
+
             {/* Additional Menu Items with Proper Icons */}
-            <ListItemButton sx={{ gap: 2, p: 1, ml: 3 }}>
-              <NoteAlt sx={{ color: "#666" }} />
-              <ListItemText
-                primary="Notes"
-                primaryTypographyProps={{ fontSize: "0.9rem" }}
-              />
-            </ListItemButton>
-            <ListItemButton sx={{ gap: 2, p: 1, ml: 3 }}>
-              <CalendarToday sx={{ color: "#666" }} />
-              <ListItemText
-                primary="Calendar"
-                primaryTypographyProps={{ fontSize: "0.9rem" }}
-              />
-            </ListItemButton>
-            <ListItemButton sx={{ gap: 2, p: 1, ml: 3 }}>
-              <Email sx={{ color: "#666" }} />
-              <ListItemText
-                primary="Email"
-                primaryTypographyProps={{ fontSize: "0.9rem" }}
-              />
-            </ListItemButton>
-            <ListItemButton sx={{ gap: 2, p: 1, ml: 3 }}>
-              <ConfirmationNumber sx={{ color: "#666" }} />
-              <ListItemText
-                primary="Tickets"
-                primaryTypographyProps={{ fontSize: "0.9rem" }}
-              />
-            </ListItemButton>
-            <ListItemButton sx={{ gap: 2, p: 1, ml: 3 }}>
-              <ViewKanban sx={{ color: "#666" }} />
-              <ListItemText
-                primary="Kanban"
-                primaryTypographyProps={{ fontSize: "0.9rem" }}
-              />
-            </ListItemButton>
+            {["Notes", "Calendar", "Email", "Tickets", "Kanban"].map((item) => (
+              <ListItemButton
+                key={item}
+                onClick={() => handleItemClick(item)}
+                sx={{
+                  gap: 2,
+                  p: 1,
+                  ml: 3,
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "20px",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+
+                    width: activeItem === item ? "4px" : "0px",
+                    backgroundColor:
+                      activeItem === item ? "#1976d2" : "transparent",
+                    borderTopRightRadius: "4px",
+                    borderBottomRightRadius: "4px",
+                    transition: "all 0.3s ease",
+                  },
+                  "&:hover": {
+                    backgroundColor: "#ff7f5033",
+                    "&::before": {
+                      backgroundColor: "#FF7F50",
+                      width: "6px",
+                    },
+                    "& .MuiListItemIcon-root": {
+                      color: "#FF7F50",
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "#FF7F50",
+                    },
+                  },
+                }}
+              >
+                {item === "Notes" && (
+                  <NoteAlt
+                    sx={{
+                      color: activeItem === item ? "#1976d2" : "#666",
+                      transition: "color 0.3s ease",
+                    }}
+                  />
+                )}
+                {item === "Calendar" && (
+                  <CalendarToday
+                    sx={{
+                      color: activeItem === item ? "#1976d2" : "#666",
+                      transition: "color 0.3s ease",
+                    }}
+                  />
+                )}
+                {item === "Email" && (
+                  <Email
+                    sx={{
+                      color: activeItem === item ? "#1976d2" : "#666",
+                      transition: "color 0.3s ease",
+                    }}
+                  />
+                )}
+                {item === "Tickets" && (
+                  <ConfirmationNumber
+                    sx={{
+                      color: activeItem === item ? "#1976d2" : "#666",
+                      transition: "color 0.3s ease",
+                    }}
+                  />
+                )}
+                {item === "Kanban" && (
+                  <ViewKanban
+                    sx={{
+                      color: activeItem === item ? "#1976d2" : "#666",
+                      transition: "color 0.3s ease",
+                    }}
+                  />
+                )}
+                <ListItemText
+                  primary={item}
+                  primaryTypographyProps={{
+                    fontSize: "0.9rem",
+                    color: activeItem === item ? "#1976d2" : "#666",
+                    fontWeight: activeItem === item ? 600 : 400,
+                    transition: "color 0.3s ease",
+                  }}
+                />
+              </ListItemButton>
+            ))}
           </List>
         </Box>
       </Box>
@@ -553,10 +1138,27 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
             display: "flex",
             alignItems: "center",
             gap: 2,
-            p: 1,
-            borderRadius: "8px",
+            p: 2.5,
+            borderRadius: "20px",
+            position: "relative",
+            overflow: "hidden",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              left: 0,
+              top: 0,
+
+              backgroundColor: "transparent",
+              borderTopRightRadius: "4px",
+              borderBottomRightRadius: "4px",
+              transition: "all 0.3s ease",
+            },
             "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.04)",
+              backgroundColor: "#E5F3FB",
+              "&::before": {
+                backgroundColor: "#E5F3FB",
+                width: "6px",
+              },
             },
           }}
         >
@@ -566,6 +1168,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
             sx={{
               width: 40,
               height: 40,
+              transition: "border 0.3s ease",
             }}
           />
           <Box sx={{ flex: 1 }}>
@@ -574,6 +1177,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                 fontSize: "0.9rem",
                 fontWeight: 600,
                 color: "#000",
+                transition: "color 0.3s ease",
               }}
             >
               Mike Neilson
@@ -582,12 +1186,19 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
               sx={{
                 fontSize: "0.8rem",
                 color: "#666",
+                transition: "color 0.3s ease",
               }}
             >
               Admin
             </Typography>
           </Box>
-          <Logout sx={{ color: "#666", fontSize: "1.2rem" }} />
+          <Logout
+            sx={{
+              color: "#666",
+              fontSize: "1.2rem",
+              transition: "color 0.3s ease",
+            }}
+          />
         </ListItemButton>
       </Box>
     </Box>

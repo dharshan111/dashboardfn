@@ -298,7 +298,7 @@ export default function EnhancedTable() {
               border: "1px solid #bbdefb",
             }}
           >
-            <Typography sx={{ color: "#1976d2", fontWeight: 500 }}>
+            <Typography sx={{ color: "#1976d2", fontWeight: 500, textTransform:"none" }}>
               Selected {selectedRows.length}
             </Typography>
             <IconButton
@@ -306,7 +306,7 @@ export default function EnhancedTable() {
               onClick={clearSelection}
               sx={{
                 padding: "2px",
-                color: "#d32f2f",
+                color: "grey",
                 "&:hover": { backgroundColor: "#ffebee" },
               }}
             >

@@ -110,9 +110,10 @@ const Header = () => {
           backgroundColor: "#fff",
           borderRadius: "15px",
           mx: "auto",
-          width: { xs: "calc(100% - 32px)", sm: "calc(100% - 300px)" }, // Adjust based on sidebar
+
+          width: { xs: "calc(100% - 650px)", sm: "calc(100% - 300px)" }, // Adjust based on sidebar
           left: { xs: "16px", sm: "276px" }, // Position relative to sidebar
-          right: "16px",
+          right: { xs: "630px", md: "16px" },
           top: "16px",
           boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
           height: "70px", // Fixed height
@@ -121,7 +122,7 @@ const Header = () => {
         <Toolbar
           sx={{
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: { xs: "center", md: "space-around" },
             alignItems: "center",
           }}
         >
@@ -149,6 +150,7 @@ const Header = () => {
                 borderRadius: "20px",
                 color: "#000",
                 fontWeight: 400,
+                display: { xs: "none", md: "flex" },
               }}
             >
               <SearchIcon sx={{ mr: 1 }} />
@@ -233,18 +235,18 @@ const Header = () => {
               <Box
                 sx={{
                   border: "1px solid green",
-                  width: "10px",
-                  height: "10px",
-                  borderRadius: "40px",
+                  width: "8px",
+                  height: "8px",
+                  borderRadius: "50%",
                   position: "absolute",
-                  top: "4px",
-                  right: "1px",
+                  top: "6px",
+                  right: "6px",
                   animation: "beat 0.3s infinite alternate",
                   transformOrigin: "center",
                   "@keyframes beat": {
                     to: {
-                      transform: "translate(-10%, -10%) scale(0.1)",
-                      opacity: 0.2,
+                      transform: "scale(0.8)",
+                      opacity: 0.5,
                     },
                   },
                 }}
@@ -253,13 +255,13 @@ const Header = () => {
                   sx={{
                     width: "3px",
                     height: "3px",
-                    borderRadius: "30px",
+                    borderRadius: "50%",
                     position: "absolute",
-                    right: "3px",
-                    top: "3px",
+                    right: "2.5px",
+                    top: "2.5px",
                     backgroundColor: "#4bd08b",
                   }}
-                ></Box>
+                />
               </Box>
             </Button>
 
@@ -272,7 +274,7 @@ const Header = () => {
                 fontWeight: 400,
                 minWidth: "auto",
                 padding: "6px",
-                display: "flex",
+                display: { xs: "none", md: "flex" },
                 gap: 1,
               }}
             >
@@ -377,32 +379,6 @@ const Header = () => {
           </Menu>
 
           {/* Theme Dropdown Menu */}
-          <Menu
-            anchorEl={themeAnchorEl}
-            open={themeOpen}
-            onClose={handleThemeClose}
-            PaperProps={{
-              sx: {
-                mt: 1,
-                borderRadius: "10px",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-              },
-            }}
-          >
-            <MenuItem sx={{ fontWeight: 600, color: "text.secondary" }}>
-              Theme Settings
-            </MenuItem>
-            <Divider />
-            <MenuItem onClick={handleThemeClose}>
-              <Typography variant="body2">Light Mode</Typography>
-            </MenuItem>
-            <MenuItem onClick={handleThemeClose}>
-              <Typography variant="body2">Dark Mode</Typography>
-            </MenuItem>
-            <MenuItem onClick={handleThemeClose}>
-              <Typography variant="body2">Auto</Typography>
-            </MenuItem>
-          </Menu>
 
           {/* Notifications Dropdown Menu */}
           <Menu
