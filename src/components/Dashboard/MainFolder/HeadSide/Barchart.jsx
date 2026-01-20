@@ -215,4 +215,6 @@ export default function StackedBarChart() {
       </Box>
     </Box>
   );
+
+
 }

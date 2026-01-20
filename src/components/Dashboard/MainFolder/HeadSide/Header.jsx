@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+ import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -32,10 +32,11 @@ import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined
 import SettingsIcon from "@mui/icons-material/Settings";
 
 const countries = [
-  { name: "English (UK)", flag: "🇺🇸" },
+  { name: "English (UK)", flag: "🇺🇸",},
   { name: "Chinese", flag: "🇩🇪" },
   { name: "France", flag: "🇫🇷" },
   { name: "India", flag: "🇮🇳" },
+
 ];
 
 const Header = () => {
@@ -865,7 +866,6 @@ const Header = () => {
         sx={{
           "& .MuiDrawer-paper": {
             width: 250,
-
             height: "calc(100% - 1px)",
             backgroundColor: "#fff",
           },

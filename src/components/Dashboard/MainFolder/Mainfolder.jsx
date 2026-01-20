@@ -1,77 +1,77 @@
-import React from "react";
-import { Grid, Box } from "@mui/material";
-import Header from "./HeadSide/Header";
-import Barchart from "./HeadSide/Barchart";
-import PieCharts from "./HeadSide/Secondchart";
-import Centercard from "./HeadSide/Centercard";
-import ThirdCharts from "./HeadSide/ThirdCharts";
-import FourthCharts from "./HeadSide/FourthCharts";
-import Mapsection from "./HeadSide/Mapsection";
-import Tablecontent from "./HeadSide/Tablecontent";
-import Databox from "./HeadSide/Databox";
-import Sidebar from "./HeadSide/Sidebar"; // Make sure this has default export
+  import React from "react";
+  import { Grid, Box,} from "@mui/material";
+  import Header from "./HeadSide/Header";
+  import Barchart from "./HeadSide/Barchart";
+  import PieCharts from "./HeadSide/Secondchart";
+  import Centercard from "./HeadSide/Centercard";
+  import ThirdCharts from "./HeadSide/ThirdCharts";
+  import FourthCharts from "./HeadSide/FourthCharts";
+  import Mapsection from "./HeadSide/Mapsection";
+  import Tablecontent from "./HeadSide/Tablecontent";
+  import Databox from "./HeadSide/Databox";
+  import Sidebar from "./HeadSide/Sidebar"; // Make sure this has default export
 
-const Mainfolder = () => {
+  const Mainfolder = () => {
 
-  return (
-    <Box sx={{ display: "flex" }}>
-      {/* Sidebar - Fixed position */}
-      <Sidebar sx={{ mt: 10 }} />
+    return (
+      <Box sx={{ display: "flex" }}>
+        {/* Sidebar - Fixed position */}
+        <Sidebar sx={{ mt: 10 }} />
 
-      {/* Main content */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {/* Header */}
-        <Grid item xs={12} md={4}>
-          <Header />
-        </Grid>
-        
+        {/* Main content */}
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          {/* Header */}
+          <Grid item xs={12} md={4}>
+            <Header />
+          </Grid>
+          
 
-        {/* Dashboard content */}
-        <Grid container spacing={3}>
-          {/* First Row: Barchart & PieCharts */}
-          <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-            <Grid item xs={12} md={4} size={2.5}>
-              <Barchart />
-              <PieCharts />
+          {/* Dashboard content */}
+          <Grid container spacing={3}>
+            {/* First Row: Barchart & PieCharts */}
+            <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
+              <Grid item xs={4} md={4} size={2.5}>
+                <Barchart />
+                <PieCharts />
+              </Grid>
+
+              {/* Centercard */}
+              <Grid item xs={12} md={4} size={6.7}>
+                <Centercard />
+              </Grid>
+
+              {/* ThirdCharts & FourthCharts */}
+              <Grid item xs={12} md={4} size={2.5}>
+                <ThirdCharts />
+                <FourthCharts />
+              </Grid>
             </Grid>
 
-            {/* Centercard */}
-            <Grid item xs={12} md={4} size={6.7}>
-              <Centercard />
+            {/* Second Row: Mapsection and Tablecontent */}
+            <Grid
+              container
+              columns={{ xs: 4, sm: 8, md: 12 }}
+              item
+              xs={12}
+              md={6}
+              size={12}
+            >
+              <Grid item xs={12} md={4} size={3}>
+                <Mapsection />
+              </Grid>
+              <Grid item xs={12} md={4} size={8.7}>
+                <Tablecontent />
+              </Grid>
             </Grid>
 
-            {/* ThirdCharts & FourthCharts */}
-            <Grid item xs={12} md={4} size={2.5}>
-              <ThirdCharts />
-              <FourthCharts />
+            {/* Databox - Full width */}
+            <Grid item xs={12}>
+              <Databox />
             </Grid>
           </Grid>
-
-          {/* Second Row: Mapsection and Tablecontent */}
-          <Grid
-            container
-            columns={{ xs: 4, sm: 8, md: 12 }}
-            item
-            xs={12}
-            md={6}
-            size={12}
-          >
-            <Grid item xs={12} md={4} size={3}>
-              <Mapsection />
-            </Grid>
-            <Grid item xs={12} md={4} size={8.7}>
-              <Tablecontent />
-            </Grid>
-          </Grid>
-
-          {/* Databox - Full width */}
-          <Grid item xs={12}>
-            <Databox />
-          </Grid>
-        </Grid>
+        </Box>
       </Box>
-    </Box>
-  );
-};
+    );
+  };
 
-export default Mainfolder;
+  export default Mainfolder;

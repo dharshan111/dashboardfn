@@ -37,7 +37,7 @@ export default function PaymentChart() {
   return (
     <Box
       sx={{
-        width: "200px",
+        width: {xs:"300px", md:"100%"},
         padding: "10px",
         color: "#000",
         borderRadius: "20px",
@@ -61,13 +61,13 @@ export default function PaymentChart() {
           <LinearProgress
             variant="determinate"
             value={25}
-            sx={{ borderRadius: "10px" }}
+            sx={{ borderRadius: "10px", ml:1, mr:1, }}
           />
         </Box>
         <Typography sx={{ fontWeight: 300, m: 1 }}>
           Coupons used: 18/22
         </Typography>
-        <Box sx={{ mt: 10, }}>
+        <Box sx={{ mt: 10, display:"flex", flexDirection:"column"}}>
           <Typography sx={{fontWeight:510, m:1}}>
             Recent Purchasers
             <AvatarGroup total={+12}>

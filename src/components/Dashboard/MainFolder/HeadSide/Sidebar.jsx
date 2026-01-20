@@ -158,9 +158,9 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
         }}
       >
         {/* HOME Section with Apps */}
-        <Box sx={{ mt: 2 }}>
+        <Box sx={{ mt: 1, }}>
           <Typography
-            sx={{ fontSize: "15px", fontWeight: 600, color: "grey", ml: 3 }}
+            sx={{ fontSize: "12px", fontWeight: 600, color: "grey", ml: 3, mb:2 }}
           >
             HOME
           </Typography>
@@ -394,7 +394,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
             {/* Main Navigation Menu */}
             <Typography
               sx={{
-                fontSize: "15px",
+                fontSize: "12px",
                 fontWeight: 600,
                 color: "grey",
                 ml: 3,
