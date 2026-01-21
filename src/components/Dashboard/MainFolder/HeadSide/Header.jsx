@@ -1,4 +1,4 @@
- import React, { useState } from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -19,7 +19,6 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
@@ -39,7 +38,7 @@ const countries = [
 
 ];
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [countryAnchorEl, setCountryAnchorEl] = useState(null);
   const [notificationsAnchorEl, setNotificationsAnchorEl] = useState(null);
@@ -89,12 +88,12 @@ const Header = () => {
     setThemeAnchorEl(null);
   };
 
-  // Sidebar handlers
-  const toggleSidebar = () => {
+  // Sidebar handlers - KEEP YOUR SHOPPING CART SIDEBAR
+  const toggleShoppingCart = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  const closeSidebar = () => {
+  const closeShoppingCart = () => {
     setSidebarOpen(false);
   };
 
@@ -111,7 +110,6 @@ const Header = () => {
           backgroundColor: "#fff",
           borderRadius: "15px",
           mx: "auto",
-
           width: { xs: "calc(100% - 650px)", sm: "calc(100% - 300px)" }, // Adjust based on sidebar
           left: { xs: "16px", sm: "276px" }, // Position relative to sidebar
           right: { xs: "630px", md: "16px" },
@@ -127,11 +125,12 @@ const Header = () => {
             alignItems: "center",
           }}
         >
-          {/* Left side: Menu button */}
+          {/* Left side: Menu button - Now shows on BOTH mobile and desktop */}
           <IconButton
             edge="start"
             color="#000"
             aria-label="menu"
+            onClick={toggleSidebar} // Use the prop function to toggle main sidebar
             sx={{ mr: 2 }}
           >
             <MenuIcon />
@@ -182,9 +181,9 @@ const Header = () => {
               />
             </Button>
 
-            {/* Badge button - opens sidebar */}
+            {/* Badge button - opens SHOPPING CART sidebar (your original sidebar) */}
             <Button
-              onClick={toggleSidebar}
+              onClick={toggleShoppingCart}
               sx={{
                 textTransform: "none",
                 borderRadius: "220px",
@@ -338,9 +337,9 @@ const Header = () => {
           >
             {countries.map((country) => (
               <MenuItem
-                key={country.code}
+                key={country.name}
                 onClick={() => handleCountrySelect(country)}
-                selected={selectedCountry.code === country.code}
+                selected={selectedCountry.name === country.name}
                 sx={{
                   padding: "10px 16px",
                   minWidth: "200px",
@@ -366,12 +365,6 @@ const Header = () => {
                   <Box>
                     <Typography variant="body2" sx={{ fontWeight: 500 }}>
                       {country.name}
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      sx={{ color: "text.secondary" }}
-                    >
-                      {country.code}
                     </Typography>
                   </Box>
                 </Box>
@@ -858,11 +851,11 @@ const Header = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Right Sidebar Drawer */}
+      {/* Right Sidebar Drawer - SHOPPING CART (your original sidebar) */}
       <Drawer
         anchor="right"
         open={sidebarOpen}
-        onClose={closeSidebar}
+        onClose={closeShoppingCart}
         sx={{
           "& .MuiDrawer-paper": {
             width: 250,

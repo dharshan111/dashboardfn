@@ -1,4 +1,3 @@
-
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,7 +14,7 @@ function App() {
   return (
     <>
 
-      {/* <Maincontact /> */}
+      
 
       <Router>
         <Routes>
@@ -23,6 +22,7 @@ function App() {
           <Route path="/login" element={<Loginpage />} />
           <Route path="/register" element={<Registerpage />} />
           <Route path="/dashboard" element={<Mainfolder />} />
+           <Route path="/contacts" element={<Maincontact />} />
           
         </Routes>
       </Router>
