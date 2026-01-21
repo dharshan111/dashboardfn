@@ -143,7 +143,7 @@ const Header = () => {
           ></Box>
 
           {/* Right side: Icons with dropdowns */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center",justifyContent:"center", gap: 1 }}>
             <Button
               sx={{
                 textTransform: "none",
@@ -240,8 +240,8 @@ const Header = () => {
                   height: "8px",
                   borderRadius: "50%",
                   position: "absolute",
-                  top: "6px",
-                  right: "6px",
+                  top: "4px",
+                  right: "3px",
                   animation: "beat 0.3s infinite alternate",
                   transformOrigin: "center",
                   "@keyframes beat": {

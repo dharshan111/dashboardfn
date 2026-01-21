@@ -28,7 +28,17 @@ const rows = [
     progress: 75,
     status: "confirmed",
     date: (
-      <Button sx={{ backgroundColor: "transparent", color: "grey" }}>
+      <Button
+        sx={{
+          backgroundColor: "transparent",
+          color: "grey",
+          minWidth: "auto",
+          padding: "4px",
+          "&:hover": {
+            backgroundColor: "action.hover",
+          },
+        }}
+      >
         <MoreVertIcon />
       </Button>
     ),
@@ -44,7 +54,17 @@ const rows = [
     progress: 40,
     status: "paid",
     date: (
-      <Button sx={{ backgroundColor: "transparent", color: "grey" }}>
+      <Button
+        sx={{
+          backgroundColor: "transparent",
+          color: "grey",
+          minWidth: "auto",
+          padding: "4px",
+          "&:hover": {
+            backgroundColor: "action.hover",
+          },
+        }}
+      >
         <MoreVertIcon />
       </Button>
     ),
@@ -60,7 +80,17 @@ const rows = [
     progress: 20,
     status: "waiting",
     date: (
-      <Button sx={{ backgroundColor: "transparent", color: "grey" }}>
+      <Button
+        sx={{
+          backgroundColor: "transparent",
+          color: "grey",
+          minWidth: "auto",
+          padding: "4px",
+          "&:hover": {
+            backgroundColor: "action.hover",
+          },
+        }}
+      >
         <MoreVertIcon />
       </Button>
     ),
@@ -76,7 +106,17 @@ const rows = [
     progress: 50,
     status: "paid",
     date: (
-      <Button sx={{ backgroundColor: "transparent", color: "grey" }}>
+      <Button
+        sx={{
+          backgroundColor: "transparent",
+          color: "grey",
+          minWidth: "auto",
+          padding: "4px",
+          "&:hover": {
+            backgroundColor: "action.hover",
+          },
+        }}
+      >
         <MoreVertIcon />
       </Button>
     ),
@@ -92,7 +132,13 @@ const rows = [
     progress: 60,
     status: "confirmed",
     date: (
-      <Button sx={{ backgroundColor: "transparent", color: "grey" }}>
+      <Button sx={{  backgroundColor: "transparent",
+          color: "grey",
+          minWidth: "auto",
+          padding: "4px",
+          "&:hover": {
+            backgroundColor: "action.hover",
+          }, }}>
         <MoreVertIcon />
       </Button>
     ),
@@ -180,29 +226,32 @@ export default function EnhancedTable() {
           overflow: "hidden", // Prevents content overflow
         }}
       >
-        <Table sx={{ minWidth: 650 }} aria-label="enhanced table"> {/* Reduced minWidth */}
+        <Table sx={{ minWidth: 650 }} aria-label="enhanced table">
+          {" "}
+          {/* Reduced minWidth */}
           <TableHead>
             <TableRow>
-              <TableCell sx={{ fontWeight: "bold", width: "40%" }}> {/* Added width */}
+              <TableCell sx={{ fontWeight: "bold", width: "40%" }}>
+                {" "}
+                {/* Added width */}
                 Products
               </TableCell>
-              <TableCell 
-                align="left" 
+              <TableCell
+                align="left"
                 sx={{ fontWeight: "bold", width: "35%" }} // Added width
               >
                 Payment
               </TableCell>
-              <TableCell 
-                align="center" 
+              <TableCell
+                align="center"
                 sx={{ fontWeight: "bold", width: "15%" }} // Added width
               >
                 Status
               </TableCell>
-              <TableCell 
-                align="right" 
+              <TableCell
+                align="right"
                 sx={{ fontWeight: "bold", width: "10%" }} // Added width
-              >
-              </TableCell>
+              ></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -216,21 +265,23 @@ export default function EnhancedTable() {
                 }}
               >
                 {/* First Cell: Avatar and Typography */}
-                <TableCell 
-                  component="th" 
+                <TableCell
+                  component="th"
                   scope="row"
                   sx={{ width: "40%" }} // Match header width
                 >
                   <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                     {row.avatar}
-                    <Box sx={{ 
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      maxWidth: "300px" // Prevent text from overflowing
-                    }}>
-                      <Typography 
-                        variant="subtitle1" 
-                        fontWeight="medium" 
+                    <Box
+                      sx={{
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        maxWidth: "300px", // Prevent text from overflowing
+                      }}
+                    >
+                      <Typography
+                        variant="subtitle1"
+                        fontWeight="medium"
                         fontSize="14px"
                         sx={{
                           overflow: "hidden",
@@ -245,7 +296,9 @@ export default function EnhancedTable() {
                 </TableCell>
 
                 {/* Second Cell: Amount and Linear Progress */}
-                <TableCell align="left" sx={{ width: "35%" }}> {/* Match header width */}
+                <TableCell align="left" sx={{ width: "35%" }}>
+                  {" "}
+                  {/* Match header width */}
                   <Box sx={{ width: "100%" }}>
                     <Box
                       sx={{
@@ -261,9 +314,7 @@ export default function EnhancedTable() {
                         sx={{ display: "flex", alignItems: "center" }}
                       >
                         {row.amount}/
-                        <Typography
-                          sx={{ fontWeight: 350, fontSize: "14px" }}
-                        >
+                        <Typography sx={{ fontWeight: 350, fontSize: "14px" }}>
                           {row.amounttwo}
                         </Typography>
                       </Typography>
@@ -297,12 +348,16 @@ export default function EnhancedTable() {
                 </TableCell>
 
                 {/* Third Cell: Status */}
-                <TableCell align="center" sx={{ width: "15%" }}> {/* Match header width */}
+                <TableCell align="center" sx={{ width: "15%" }}>
+                  {" "}
+                  {/* Match header width */}
                   <StatusChip status={row.status} />
                 </TableCell>
 
                 {/* Fourth Cell: Date */}
-                <TableCell align="right" sx={{ width: "10%" }}> {/* Match header width */}
+                <TableCell align="right" sx={{ width: "10%" }}>
+                  {" "}
+                  {/* Match header width */}
                   <Typography variant="body2" color="text.secondary">
                     {row.date}
                   </Typography>

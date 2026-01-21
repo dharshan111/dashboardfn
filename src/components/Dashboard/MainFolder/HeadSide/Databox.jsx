@@ -241,6 +241,7 @@ export default function EnhancedTable() {
         cursor: "pointer",
         "&:hover": { opacity: 0.8 },
       }}
+      
       onClick={() => handleSort(sortKey)}
     >
       <Typography variant="body2" fontWeight="bold">
@@ -293,13 +294,13 @@ export default function EnhancedTable() {
               alignItems: "center",
               gap: 1,
               backgroundColor: "#e3f2fd",
-              padding: "6px 12px",
+              padding: "17px",
               borderRadius: "15px",
               border: "1px solid #bbdefb",
             }}
           >
-            <Typography sx={{ color: "#1976d2", fontWeight: 500, textTransform:"none" }}>
-              Selected {selectedRows.length}
+            <Typography sx={{ color:"#000", fontSize:"14px", fontWeight: 300, textTransform:"none", textDecoration:"none",}}>
+               {selectedRows.length} Selected
             </Typography>
             <IconButton
               size="small"
@@ -315,7 +316,7 @@ export default function EnhancedTable() {
           </Box>
         ) : (
           <TextField
-            placeholder="Search..."
+            placeholder="Search Products"
             variant="outlined"
             size="small"
             value={searchQuery}
