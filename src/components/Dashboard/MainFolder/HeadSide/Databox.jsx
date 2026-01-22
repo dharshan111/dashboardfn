@@ -406,8 +406,8 @@ export default function EnhancedTable() {
                 </TableCell>
 
                 {/* Products Column */}
-                <TableCell sx={{ width: "25%" }}>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <TableCell sx={{ width: "10%" }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1, }}>
                     <Avatar
                       src={row.avatar}
                       sx={{ width: 40, height: 40 }}
