@@ -33,7 +33,6 @@ import SettingsIcon from "@mui/icons-material/Settings";
 const countries = [
   { name: "English (UK)", flag: "🇺🇸",},
   { name: "Chinese", flag: "🇩🇪" },
-  { name: "France", flag: "🇫🇷" },
   { name: "India", flag: "🇮🇳" },
 
 ];
@@ -88,7 +87,7 @@ const Header = ({ toggleSidebar }) => {
     setThemeAnchorEl(null);
   };
 
-  // Sidebar handlers - KEEP YOUR SHOPPING CART SIDEBAR
+  // Sidebar handlers
   const toggleShoppingCart = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -130,7 +129,7 @@ const Header = ({ toggleSidebar }) => {
             edge="start"
             color="#000"
             aria-label="menu"
-            onClick={toggleSidebar} // Use the prop function to toggle main sidebar
+            onClick={toggleSidebar} // Use the prop function to toggle main sidebar 
             sx={{ mr: 2 }}
           >
             <MenuIcon />

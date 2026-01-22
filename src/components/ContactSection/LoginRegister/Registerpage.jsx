@@ -89,7 +89,7 @@ function Registerpage() {
       // Simulate API call delay
       setTimeout(() => {
         navigate("/dashboard");
-      }, 1500);
+      }, 1000);
 
       console.log("User registered:", userData);
     } catch (err) {

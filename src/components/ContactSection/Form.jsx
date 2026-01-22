@@ -124,6 +124,7 @@ const StaticContactForm = () => {
                   borderRadius: "20px",
                   fontSize: "1rem",
                   fontWeight: 600,
+                  textTransform:"none",
                   backgroundColor: "#0085DB",
                   "&:hover": {
                     backgroundColor: "#0069b3",

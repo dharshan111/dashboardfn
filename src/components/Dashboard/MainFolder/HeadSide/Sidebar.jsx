@@ -1155,7 +1155,16 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
               },
             },
           }}
+          onClick={() => {
+            // Clear localStorage
+            localStorage.removeItem("user");
+            localStorage.removeItem("users"); 
+          
+            // go to login page
+            navigate("/login");
+          }}
         >
+          
           <Avatar
             alt="User"
             src="https://spike-nextjs-pro-main.vercel.app/images/profile/user1.jpg"

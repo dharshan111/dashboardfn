@@ -20,7 +20,7 @@ const Mainfolder = () => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      {/* Sidebar - Fixed position */}
+    
       <Sidebar
         sx={{ mt: 10 }}
         mobileOpen={mobileOpen}
