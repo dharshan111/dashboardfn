@@ -40,11 +40,10 @@ const Centercard = () => {
     <Grid>
       <Box
         sx={{
-          width: "500px",
           borderRadius: "10px",
           boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
           p: 3,
-          mt: 10,
+          mt: {xs:1, md:10},
           mr: 0,
           ml: 2,
           mb:1,
@@ -65,13 +64,14 @@ const Centercard = () => {
         >
           <Box>
             <Box>
-              <CardContent >
+              <CardContent sx={{width:"100%",}}>
                 <Box
                   sx={{
                     display: "flex",
                     alignItems: "center",
                     gap: 2,
                     mb: 2,
+                    
                   }}
                 >
                   <Button
@@ -142,6 +142,7 @@ const Centercard = () => {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
+                      
                     }}
                   >
                     <Typography
@@ -222,7 +223,7 @@ const Centercard = () => {
           </Box>
 
           {/* image box */}
-          <Box>
+          <Box sx={{display:{xs:"none", md:"flex"}}}>
             <img
               src="	https://spike-nextjs-pro-main.vercel.app/images/backgrounds/man-working-on-laptop.png"
               alt=""

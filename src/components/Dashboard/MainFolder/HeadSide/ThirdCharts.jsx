@@ -37,12 +37,12 @@ export default function PaymentChart() {
   return (
     <Box
       sx={{
-        width: {xs:"300px", md:"100%"},
+        width: "100%",
         padding: "10px",
         color: "#000",
         borderRadius: "20px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-        mt:10,
+        mt:{xs:1,md:10},
       }}
     >
       <StatHeader
@@ -57,7 +57,7 @@ export default function PaymentChart() {
           <Typography sx={{ fontWeight: 600 }}>$98,500</Typography>
           <Typography sx={{ fontWeight: 600 }}>$1,22,900</Typography>
         </Stack>
-        <Box sx={{ width: "100%",}}>
+        <Box sx={{}}>
           <LinearProgress
             variant="determinate"
             value={25}

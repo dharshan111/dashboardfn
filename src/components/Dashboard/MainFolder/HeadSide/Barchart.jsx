@@ -21,6 +21,7 @@ export default function StackedBarChart() {
         borderRadius: "20px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
         mt: 10,
+        
       }}
     >
       <StatHeader
@@ -215,6 +216,4 @@ export default function StackedBarChart() {
       </Box>
     </Box>
   );
-
-
 }

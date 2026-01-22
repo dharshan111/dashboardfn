@@ -27,7 +27,7 @@ export default function PaymentChart() {
   return (
     <Box
       sx={{
-        width: "200px",
+        width: "100%",
         padding: "10px",
         color: "#000",
         borderRadius: "20px",
@@ -116,13 +116,13 @@ export default function PaymentChart() {
       </Box>
 
       <Box sx={{display:"flex", flexDirection:"column", justifyContent:"space-between", alignItems: "center"}}>
-        <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+        <Box sx={{ display: "flex", justifyContent:"space-between", alignItems: "center" }}>
           <Box sx={{ display: "flex", gap: 5 }}>
             <Typography sx={{ opacity: 0.7, fontSize:"14px", }}>April 07 - April 14</Typography>
             <Typography sx={{ opacity: 0.7, fontSize:"14px" }} >6,380</Typography>
           </Box>
         </Box>
-        <Box sx={{ display: "flex", gap: 1, alignItems: "center", mt:1,  }}>
+        <Box sx={{ display: "flex", justifyContent:"space-between", alignItems: "center", mt:1,  }}>
           <Box sx={{ display: "flex", gap: 10.3 }}>
             <Typography sx={{ opacity: 0.7, fontSize:"14px",}}>Last Week</Typography>
             <Typography sx={{ opacity: 0.7,fontSize:"14px" }}>4,298</Typography>
