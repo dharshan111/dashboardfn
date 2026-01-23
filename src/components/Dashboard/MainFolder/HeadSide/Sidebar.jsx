@@ -47,7 +47,10 @@ import {
 
 const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // < 600px
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // 600-900px
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md")); // > 900px
+  
   const [openHome, setOpenHome] = useState(false);
   const [openApps, setOpenApps] = useState(false);
   const [openBlogs, setOpenBlogs] = useState(false);
@@ -87,8 +90,8 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
 
   const handleItemClick = (itemName) => {
     setActiveItem(itemName);
-    // On mobile, close the drawer when an item is clicked
-    if (isMobile) {
+    // On mobile and tablet, close the drawer when an item is clicked
+    if (isMobile || isTablet) {
       handleDrawerToggle();
     }
   };
@@ -416,8 +419,8 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
             <ListItemButton
               onClick={() => {
                 navigate("/contacts"); // Navigate to contacts page
-                if (isMobile) {
-                  handleDrawerToggle(); // Close sidebar on mobile
+                if (isMobile || isTablet) {
+                  handleDrawerToggle(); // Close sidebar on mobile and tablet
                 }
               }}
               sx={{
@@ -1213,7 +1216,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
       >
-        {/* Mobile Drawer - Opens when menu button is clicked */}
+        {/* Mobile & Tablet Drawer - Opens when menu button is clicked */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -1222,7 +1225,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
             keepMounted: true,
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", md: "none" }, // Show on xs (mobile) and sm (tablet), hide on md and up
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -1234,17 +1237,16 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
           {drawerContent}
         </Drawer>
 
-        {/* Desktop Drawer - Always visible on desktop */}
+        {/* Desktop Drawer - Always visible on desktop (md and up) */}
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", sm: "block" },
+            display: { xs: "none", md: "block" }, // Hide on mobile and tablet, show on desktop
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
               mt: 1,
               ml: 1.5,
-
               boxShadow: "4px 0px 20px rgba(0, 0, 0, 0.08)",
               backgroundColor: "#fff",
               borderRadius: "0 20px 20px 0",

@@ -25,6 +25,7 @@ const Mainfolder = () => {
         sx={{ mt: 10 }}
         mobileOpen={mobileOpen}
         handleDrawerToggle={handleDrawerToggle}
+   
       />
 
       {/* Main content */}
@@ -68,13 +69,13 @@ const Mainfolder = () => {
               <Mapsection />
             </Grid>
             <Grid item xs={4} md={4} size={8.7}>
-              {/* <Tablecontent /> */}
+              <Tablecontent />
             </Grid>
           </Grid>
 
           {/* Databox - Full width */}
           <Grid item xs={12}>
-            {/* <Databox /> */}
+            <Databox />
           </Grid>
         </Grid>
       </Box>
