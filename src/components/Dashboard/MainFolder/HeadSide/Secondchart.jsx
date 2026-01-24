@@ -42,7 +42,7 @@ export default function PaymentChart() {
         width: "100%",
         padding: "10px",
         color: "#000",
-        borderRadius: "20px",
+        borderRadius: "10px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
         mt: 2,
       }}

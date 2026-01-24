@@ -1,4 +1,4 @@
-import { Box, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Paper, Typography, Grid, useMediaQuery, useTheme } from "@mui/material";
 import { BarChart } from "@mui/x-charts/BarChart";
 import StatHeader from "./StatHeader";
 
@@ -13,12 +13,13 @@ export default function StackedBarChart() {
   const isLaptop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
+    <Grid>
     <Box
       sx={{
         width: "100%",
         padding: "10px",
         color: "#000",
-        borderRadius: "20px",
+        borderRadius: "10px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
         mt: 10,
         
@@ -215,5 +216,6 @@ export default function StackedBarChart() {
         </Box>
       </Box>
     </Box>
+    </Grid>
   );
 }

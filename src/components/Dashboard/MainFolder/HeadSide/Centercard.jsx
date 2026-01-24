@@ -45,7 +45,7 @@ const Centercard = () => {
           p: 3,
           mt: {xs:1, md:10},
           mr: 0,
-          ml: 2,
+          ml: {xs:0, md:2},
           mb:1,
         }}
       >

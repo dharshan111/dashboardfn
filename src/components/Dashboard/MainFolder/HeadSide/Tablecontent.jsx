@@ -132,13 +132,17 @@ const rows = [
     progress: 60,
     status: "confirmed",
     date: (
-      <Button sx={{  backgroundColor: "transparent",
+      <Button
+        sx={{
+          backgroundColor: "transparent",
           color: "grey",
           minWidth: "auto",
           padding: "4px",
           "&:hover": {
             backgroundColor: "action.hover",
-          }, }}>
+          },
+        }}
+      >
         <MoreVertIcon />
       </Button>
     ),
@@ -214,159 +218,163 @@ const getPaymentText = (status, progress) => {
 export default function EnhancedTable() {
   return (
     <>
-      <TableContainer
-        component={Paper}
+      <Box
         sx={{
           width: "100%",
-          maxWidth: "900px", // Added max width constraint
-          padding: "10px",
-          color: "#000",
-          borderRadius: "20px",
-          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-          overflow: "hidden", // Prevents content overflow
+          overflowX: "auto", // Enables horizontal scroll on mobile
+          // Disable scrollbar on desktop
+          "@media (min-width: 768px)": {
+            overflowX: "visible",
+           
+          },
         }}
       >
-        <Table sx={{ minWidth: 650 }} aria-label="enhanced table">
-          {" "}
-          {/* Reduced minWidth */}
-          <TableHead>
-            <TableRow>
-              <TableCell sx={{ fontWeight: "bold", width: "40%" }}>
-                {" "}
-                {/* Added width */}
-                Products
-              </TableCell>
-              <TableCell
-                align="left"
-                sx={{ fontWeight: "bold", width: "35%" }} // Added width
-              >
-                Payment
-              </TableCell>
-              <TableCell
-                align="center"
-                sx={{ fontWeight: "bold", width: "15%" }} // Added width
-              >
-                Status
-              </TableCell>
-              <TableCell
-                align="right"
-                sx={{ fontWeight: "bold", width: "10%" }} // Added width
-              ></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow
-                key={row.id}
-                hover
-                sx={{
-                  "&:last-child td, &:last-child th": { border: 0 },
-                  "&:hover": { backgroundColor: "action.hover" },
-                }}
-              >
-                {/* First Cell: Avatar and Typography */}
+        <TableContainer
+          component={Paper}
+          sx={{
+            width: "100%",
+            minWidth: "650px", // Force minimum width to trigger scroll on mobile
+            maxWidth: "800px",
+            padding: "10px",
+            color: "#000",
+            borderRadius: "20px",
+            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+            overflow: "hidden",
+          }}
+        >
+          <Table sx={{ minWidth: 650 }} aria-label="enhanced table">
+            <TableHead>
+              <TableRow>
+                <TableCell sx={{ fontWeight: "bold", width: "40%", fontSize: "17px" }}>
+                  Products
+                </TableCell>
                 <TableCell
-                  component="th"
-                  scope="row"
-                  sx={{ width: "40%" }} // Match header width
+                  align="left"
+                  sx={{ fontWeight: 600, width: "35%", fontSize: "17px" }}
                 >
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                    {row.avatar}
-                    <Box
-                      sx={{
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        maxWidth: "300px", // Prevent text from overflowing
-                      }}
-                    >
-                      <Typography
-                        variant="subtitle1"
-                        fontWeight="medium"
-                        fontSize="14px"
+                  Payment
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{ fontWeight: 600, width: "15%", fontSize: "17px" }}
+                >
+                  Status
+                </TableCell>
+                <TableCell
+                  align="right"
+                  sx={{ fontWeight: 600, width: "10%" }}
+                ></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  hover
+                  sx={{
+                    "&:last-child td, &:last-child th": { border: 0 },
+                    "&:hover": { backgroundColor: "action.hover" },
+                  }}
+                >
+                  {/* First Cell: Avatar and Typography */}
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    sx={{ width: "40%" }}
+                  >
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                      {row.avatar}
+                      <Box
                         sx={{
                           overflow: "hidden",
                           textOverflow: "ellipsis",
-                          whiteSpace: "nowrap",
+                          maxWidth: "300px",
                         }}
                       >
-                        {row.name}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </TableCell>
-
-                {/* Second Cell: Amount and Linear Progress */}
-                <TableCell align="left" sx={{ width: "35%" }}>
-                  {" "}
-                  {/* Match header width */}
-                  <Box sx={{ width: "100%" }}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        flexDirection: "column",
-                        mb: 1,
-                      }}
-                    >
-                      <Typography
-                        variant="body2"
-                        fontWeight="medium"
-                        sx={{ display: "flex", alignItems: "center" }}
-                      >
-                        {row.amount}/
-                        <Typography sx={{ fontWeight: 350, fontSize: "14px" }}>
-                          {row.amounttwo}
+                        <Typography
+                          variant="subtitle1"
+                          fontWeight="medium"
+                          fontSize="14px"
+                          sx={{
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                            width: "170px",
+                          }}
+                        >
+                          {row.name}
                         </Typography>
-                      </Typography>
-                      <Typography
-                        variant="caption"
+                      </Box>
+                    </Box>
+                  </TableCell>
+
+                  {/* Second Cell: Amount and Linear Progress */}
+                  <TableCell align="left" sx={{ width: "35%" }}>
+                    <Box sx={{ width: "100%" }}>
+                      <Box
                         sx={{
-                          fontSize: "13px",
-                          fontWeight: 400,
-                          color: "grey",
-                          width: "100px",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          flexDirection: "column",
+                          mb: 1,
                         }}
                       >
-                        {getPaymentText(row.status, row.progress)}
-                      </Typography>
-                    </Box>
-                    <LinearProgress
-                      variant="determinate"
-                      value={row.progress}
-                      color={getProgressColor(row.status)}
-                      sx={{
-                        height: 3,
-                        borderRadius: 4,
-                        mb: 1,
-                        backgroundColor: "grey.200",
-                        "& .MuiLinearProgress-bar": {
+                        <Typography
+                          variant="body2"
+                          fontWeight="medium"
+                          sx={{ display: "flex", alignItems: "center" }}
+                        >
+                          {row.amount}/
+                          <Typography sx={{ fontWeight: 350, fontSize: "14px" }}>
+                            {row.amounttwo}
+                          </Typography>
+                        </Typography>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            fontSize: "13px",
+                            fontWeight: 400,
+                            color: "grey",
+                            width: "100px",
+                          }}
+                        >
+                          {getPaymentText(row.status, row.progress)}
+                        </Typography>
+                      </Box>
+                      <LinearProgress
+                        variant="determinate"
+                        value={row.progress}
+                        color={getProgressColor(row.status)}
+                        sx={{
+                          height: 3,
                           borderRadius: 4,
-                        },
-                      }}
-                    />
-                  </Box>
-                </TableCell>
+                          mb: 1,
+                          backgroundColor: "grey.200",
+                          "& .MuiLinearProgress-bar": {
+                            borderRadius: 4,
+                          },
+                        }}
+                      />
+                    </Box>
+                  </TableCell>
 
-                {/* Third Cell: Status */}
-                <TableCell align="center" sx={{ width: "15%" }}>
-                  {" "}
-                  {/* Match header width */}
-                  <StatusChip status={row.status} />
-                </TableCell>
+                  {/* Third Cell: Status */}
+                  <TableCell align="center" sx={{ width: "15%" }}>
+                    <StatusChip status={row.status} />
+                  </TableCell>
 
-                {/* Fourth Cell: Date */}
-                <TableCell align="right" sx={{ width: "10%" }}>
-                  {" "}
-                  {/* Match header width */}
-                  <Typography variant="body2" color="text.secondary">
-                    {row.date}
-                  </Typography>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+                  {/* Fourth Cell: Date */}
+                  <TableCell align="right" sx={{ width: "10%" }}>
+                    <Typography variant="body2" color="text.secondary">
+                      {row.date}
+                    </Typography>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
     </>
   );
 }

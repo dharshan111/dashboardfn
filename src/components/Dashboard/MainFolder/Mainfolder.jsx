@@ -38,7 +38,7 @@ const Mainfolder = () => {
         {/* Dashboard content */}
         <Grid container spacing={4}>
           {/* First Row: Barchart & PieCharts */}
-          <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
+          <Grid container columns={{ xs: 2.6, sm: 8, md: 12 }}>
             <Grid item xs={12} md={4} size={2.5}>
               <Barchart />
               <PieCharts />
@@ -61,6 +61,7 @@ const Mainfolder = () => {
             container
             columns={{ xs: 4, sm: 8, md: 12 }}
             item
+            spacing={9}
             xs={12}
             md={6}
             size={12}
@@ -68,7 +69,7 @@ const Mainfolder = () => {
             <Grid item xs={12} md={4} size={3}>
               <Mapsection />
             </Grid>
-            <Grid item xs={4} md={4} size={8.7}>
+            <Grid item xs={2} md={4} size={8.7}>
               <Tablecontent />
             </Grid>
           </Grid>

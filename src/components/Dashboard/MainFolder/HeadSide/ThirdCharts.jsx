@@ -40,7 +40,7 @@ export default function PaymentChart() {
         width: "100%",
         padding: "10px",
         color: "#000",
-        borderRadius: "20px",
+        borderRadius: "10px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
         mt:{xs:1,md:10},
       }}
@@ -53,11 +53,12 @@ export default function PaymentChart() {
       />
 
       <Box>
-        <Stack direction="row" spacing={7} sx={{ p: 1 }}>
+        
+        <Stack direction="row" sx={{ p: 0.5, display:"flex", justifyContent:"space-between" }}>
           <Typography sx={{ fontWeight: 600 }}>$98,500</Typography>
           <Typography sx={{ fontWeight: 600 }}>$1,22,900</Typography>
         </Stack>
-        <Box sx={{}}>
+        <Box>
           <LinearProgress
             variant="determinate"
             value={25}

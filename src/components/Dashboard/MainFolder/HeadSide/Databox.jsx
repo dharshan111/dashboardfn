@@ -482,7 +482,7 @@ export default function EnhancedTable() {
                       <Rating
                         value={row.rating}
                         precision={0.5}
-                        size="medium"
+                        size="small"
                         readOnly
                       />
                     </Box>
