@@ -4,7 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-
+  
 import Loginpage from "./components/ContactSection/LoginRegister/Loginpage";
 import Registerpage from "./components/ContactSection/LoginRegister/Registerpage";
 import Mainfolder from "./components/Dashboard/MainFolder/Mainfolder";

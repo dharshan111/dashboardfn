@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Checkbox from "@mui/material/Checkbox";
 import {
@@ -22,51 +22,32 @@ import {
 } from "@mui/icons-material";
 
 function Login() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const navigate = useNavigate();
 
-  // Demo credentials
-  const DEMO_EMAIL = "demo1234@gmail.com";
-  const DEMO_PASSWORD = "demo1234";
+  useEffect(() => {
+    const user = localStorage.getItem("user");
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-    setError("");
-    setSuccess("");
-  };
+    if (user) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [navigate]);
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    // Clear previous messages
-    setError("");
-    setSuccess("");
+    if (email && password) {
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ email, loggedIn: true })
+      );
 
-    // Basic validation
-    if (!formData.email || !formData.password) {
-      setError("Please fill in all fields");
-      return;
-    }
-
-    // Check if credentials match demo credentials
-    if (formData.email === DEMO_EMAIL && formData.password === DEMO_PASSWORD) {
-      setSuccess("Login successful! Redirecting to dashboard...");
-      
-      // Simulate API call delay
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 1000);
-    } else {
-      setError(`Please use demo credentials: ${DEMO_EMAIL} / ${DEMO_PASSWORD}`);
+      navigate("/dashboard");
     }
   };
 
@@ -306,7 +287,7 @@ function Login() {
 
               <Box
                 component="form"
-                onSubmit={handleSubmit}
+                onSubmit={handleLogin}
                 sx={{
                   mt: 3,
                   width: "100%",
@@ -328,8 +309,8 @@ function Login() {
                   name="email"
                   autoComplete="email"
                   autoFocus
-                  value={formData.email}
-                  onChange={handleChange}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
 
                 <Typography fontWeight={600} fontSize={14}>
@@ -343,8 +324,8 @@ function Login() {
                   type={showPassword ? "text" : "password"}
                   id="password"
                   autoComplete="current-password"
-                  value={formData.password}
-                  onChange={handleChange}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   sx={{
                     borderRadius: "20px",
                   }}

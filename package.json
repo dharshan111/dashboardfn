@@ -16,8 +16,10 @@
     "@mui/material": "^7.3.6",
     "@mui/x-charts": "^8.24.0",
     "@mui/x-data-grid": "^8.24.0",
+    "apexcharts": "^5.3.6",
     "d3-geo": "^3.1.1",
     "react": "^19.2.0",
+    "react-apexcharts": "^1.9.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.11.0",
     "topojson-client": "^3.1.0"

@@ -228,7 +228,7 @@ const Header = ({ toggleSidebar }) => {
               <Box>
                 <NotificationsNoneOutlinedIcon
                   color="#000"
-                  sx={{ opacity: 0.5 }}
+                  sx={{ opacity: 0.5, }}
                 />
               </Box>
               <Box

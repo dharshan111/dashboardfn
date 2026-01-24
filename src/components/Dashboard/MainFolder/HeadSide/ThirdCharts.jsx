@@ -40,7 +40,7 @@ export default function PaymentChart() {
         width: "100%",
         padding: "10px",
         color: "#000",
-        borderRadius: "10px",
+        borderRadius: "15px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
         mt:{xs:1,md:10},
       }}
@@ -52,7 +52,7 @@ export default function PaymentChart() {
         subtitle="Last 7 days"
       />
 
-      <Box>
+      <Box sx={{mt:2}}>
         
         <Stack direction="row" sx={{ p: 0.5, display:"flex", justifyContent:"space-between" }}>
           <Typography sx={{ fontWeight: 600 }}>$98,500</Typography>
@@ -68,7 +68,7 @@ export default function PaymentChart() {
         <Typography sx={{ fontWeight: 300, m: 1 }}>
           Coupons used: 18/22
         </Typography>
-        <Box sx={{ mt: 10, display:"flex", flexDirection:"column"}}>
+        <Box sx={{ mt: 7, display:"flex", flexDirection:"column"}}>
           <Typography sx={{fontWeight:510, m:1}}>
             Recent Purchasers
             <AvatarGroup total={+12}>
