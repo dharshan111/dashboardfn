@@ -17,37 +17,70 @@ import Divider from "@mui/material/Divider";
 import {
   Visibility,
   VisibilityOff,
-  Login as LoginIcon,
-  PersonAdd,
 } from "@mui/icons-material";
 
-function Login() {
+function Loginpage() {
   
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
+  // Only these credentials are allowed
+  const DEMO_EMAIL = "demo1234@gmail.com";
+  const DEMO_PASSWORD = "demo1234";
+
+  // Check if user is already logged in
   useEffect(() => {
     const user = localStorage.getItem("user");
-
     if (user) {
       navigate("/dashboard", { replace: true });
     }
   }, [navigate]);
 
-  const handleLogin = (e) => {
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+    setError("");
+    setSuccess("");
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (email && password) {
-      localStorage.setItem(
-        "user",
-        JSON.stringify({ email, loggedIn: true })
-      );
+    // Clear previous messages
+    setError("");
+    setSuccess("");
 
-      navigate("/dashboard");
+    // Basic validation
+    if (!formData.email || !formData.password) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    // STRICT CHECK: Only allow demo credentials
+    if (formData.email === DEMO_EMAIL && formData.password === DEMO_PASSWORD) {
+      setSuccess("Login successful! Redirecting to dashboard...");
+      
+      // ✅ CRITICAL: Save user to localStorage for PrivateRoute to check
+      localStorage.setItem("user", JSON.stringify({ 
+        email: DEMO_EMAIL,
+        loggedIn: true 
+      }));
+      
+      // Simulate API call delay
+      setTimeout(() => {
+        navigate("/dashboard", { replace: true });
+      }, 1000);
+    } else {
+      // Show specific error for wrong credentials
+      setError("Invalid credentials. Please use demo1234@gmail.com / demo1234");
     }
   };
 
@@ -248,7 +281,7 @@ function Login() {
                 or sign in with
               </Divider>
 
-              {/* Demo Credentials Alert with Auto-fill Button */}
+              {/* Demo Credentials Alert */}
               <Alert
                 severity="info"
                 sx={{
@@ -262,7 +295,6 @@ function Login() {
                   },
                   display: 'flex',
                   alignItems:"center",
-                  
                 }}
               >
                 <Box>
@@ -287,7 +319,7 @@ function Login() {
 
               <Box
                 component="form"
-                onSubmit={handleLogin}
+                onSubmit={handleSubmit}
                 sx={{
                   mt: 3,
                   width: "100%",
@@ -309,8 +341,8 @@ function Login() {
                   name="email"
                   autoComplete="email"
                   autoFocus
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={formData.email}
+                  onChange={handleChange}
                 />
 
                 <Typography fontWeight={600} fontSize={14}>
@@ -324,8 +356,8 @@ function Login() {
                   type={showPassword ? "text" : "password"}
                   id="password"
                   autoComplete="current-password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={formData.password}
+                  onChange={handleChange}
                   sx={{
                     borderRadius: "20px",
                   }}
@@ -396,4 +428,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Loginpage;

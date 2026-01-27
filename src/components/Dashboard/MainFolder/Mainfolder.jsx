@@ -25,7 +25,6 @@ const Mainfolder = () => {
         sx={{ mt: 10 }}
         mobileOpen={mobileOpen}
         handleDrawerToggle={handleDrawerToggle}
-   
       />
 
       {/* Main content */}
@@ -38,19 +37,19 @@ const Mainfolder = () => {
         {/* Dashboard content */}
         <Grid container spacing={4}>
           {/* First Row: Barchart & PieCharts */}
-          <Grid container columns={{ xs: 2.6, sm: 8, md: 12 }}>
-            <Grid item xs={12} md={4} size={2.5}>
+          <Grid container columns={{ xs: 3.2, sm: 6, md: 8, lg:12 }}>
+            <Grid item xs={12} md={4} size={3}>
               <Barchart />
               <PieCharts />
             </Grid>
 
             {/* Centercard */}
-            <Grid item xs={12} md={4} size={6.7}>
+            <Grid item xs={12} md={4} size={6}>
               <Centercard />
             </Grid>
 
             {/* ThirdCharts & FourthCharts */}
-            <Grid item xs={12} md={4} size={2.5}>
+            <Grid item xs={12} md={4} size={3}>
               <ThirdCharts />
               <FourthCharts />
             </Grid>
@@ -66,10 +65,10 @@ const Mainfolder = () => {
             md={6}
             size={12}
           >
-            <Grid item xs={12} md={4} size={3}>
+            <Grid item xs={12} md={4} size={4}>
               <Mapsection />
             </Grid>
-            <Grid item xs={2} md={4} size={8.7}>
+            <Grid item xs={2} md={4} size={8}>
               <Tablecontent />
             </Grid>
           </Grid>
@@ -78,6 +77,7 @@ const Mainfolder = () => {
           <Grid item xs={12}>
             <Databox />
           </Grid>
+
         </Grid>
       </Box>
     </Box>

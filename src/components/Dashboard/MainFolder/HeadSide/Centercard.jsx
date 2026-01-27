@@ -227,6 +227,7 @@ const Centercard = () => {
             <img
               src="	https://spike-nextjs-pro-main.vercel.app/images/backgrounds/man-working-on-laptop.png"
               alt=""
+              style={{width:"300px", height:"240px"}}
             />
           </Box>
         </Box>

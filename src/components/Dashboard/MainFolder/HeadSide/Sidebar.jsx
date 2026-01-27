@@ -1163,7 +1163,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
             // Clear localStorage
             localStorage.removeItem("user");
             localStorage.removeItem("users"); 
-          
+            
             // go to login page
             navigate("/login");
           }}
