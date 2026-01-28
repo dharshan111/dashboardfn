@@ -259,8 +259,8 @@ export default function EnhancedTable() {
   return (
     <Paper
       sx={{
-        width: "100%", // Changed to 100%
-        maxWidth: "985px", // Added maxWidth constraint
+        width:"100%", // Changed to 100%
+        maxWidth: "1040px", // Added maxWidth constraint
         padding: "16px", // Slightly increased padding
         color: "#000",
         borderRadius: "20px",
@@ -276,6 +276,8 @@ export default function EnhancedTable() {
           alignItems: "center",
           p: 2,
           borderBottom: "1px solid #e0e0e0",
+          flexWrap: 'wrap',
+          gap:2 
         }}
       >
         <Box>

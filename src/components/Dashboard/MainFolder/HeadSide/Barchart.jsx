@@ -129,6 +129,7 @@ export default function StackedBarChart() {
             series={chartSeries} 
             type="bar" 
             height={150}
+            width={'100%'}
           />
         </Box>
 

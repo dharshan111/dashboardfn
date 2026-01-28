@@ -16,7 +16,7 @@ const Mapsection = () => {
       <Box
         sx={{
           width: "100%",
-          padding: {xs:"40px", md:"20px"},
+          padding: {xs:"30px", md:"20px"},
           color: "#000",
           borderRadius: "10px",
           boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",

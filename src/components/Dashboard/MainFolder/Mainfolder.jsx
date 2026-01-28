@@ -19,8 +19,7 @@ const Mainfolder = () => {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-    
+    <Box sx={{ display: "flex", }}>
       <Sidebar
         sx={{ mt: 10 }}
         mobileOpen={mobileOpen}
@@ -28,56 +27,46 @@ const Mainfolder = () => {
       />
 
       {/* Main content */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}> 
+      <Box component="main" sx={{p:{xs:0, md:3}}}>
         {/* Header */}
         <Grid item xs={12} md={4}>
-          <Header toggleSidebar={handleDrawerToggle}/>
+          <Header toggleSidebar={handleDrawerToggle} />
         </Grid>
 
         {/* Dashboard content */}
         <Grid container spacing={4}>
           {/* First Row: Barchart & PieCharts */}
-          <Grid container columns={{ xs: 3.2, sm: 6, md: 8, lg:12 }}>
-            <Grid item xs={12} md={4} size={3}>
+          <Grid container>
+            <Grid item size={{ xs: 12, md: 3 }}>
               <Barchart />
               <PieCharts />
             </Grid>
 
             {/* Centercard */}
-            <Grid item xs={12} md={4} size={6}>
+            <Grid item size={{ xs: 12, md: 6 }}>
               <Centercard />
             </Grid>
 
             {/* ThirdCharts & FourthCharts */}
-            <Grid item xs={12} md={4} size={3}>
+            <Grid item size={{ xs: 12, md: 3 }}>
               <ThirdCharts />
               <FourthCharts />
             </Grid>
           </Grid>
 
           {/* Second Row: Mapsection and Tablecontent */}
-          <Grid
-            container
-            columns={{ xs: 4, sm: 8, md: 12 }}
-            item
-            spacing={9}
-            xs={12}
-            md={6}
-            size={12}
-          >
-            <Grid item xs={12} md={4} size={4}>
+
+            <Grid item size={{ xs: 12, md: 4 }}>
               <Mapsection />
-            </Grid>
-            <Grid item xs={2} md={4} size={8}>
+            </Grid> 
+            <Grid item size={{ xs: 12, md: 8 }}>
               <Tablecontent />
             </Grid>
-          </Grid>
-
+          
           {/* Databox - Full width */}
-          <Grid item xs={12}>
+          <Grid item size={12}>
             <Databox />
           </Grid>
-
         </Grid>
       </Box>
     </Box>

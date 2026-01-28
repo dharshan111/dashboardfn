@@ -43,9 +43,7 @@ const Centercard = () => {
           borderRadius: "10px",
           boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
           p: 3,
-          mt: {xs:1, md:10},
-          mr: 0,
-          ml: {xs:0, md:2},
+          mt: {xs:1, md:10},       
           mb:1,
         }}
       >
