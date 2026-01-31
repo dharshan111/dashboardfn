@@ -109,10 +109,10 @@ const Header = ({ toggleSidebar }) => {
           backgroundColor: "#fff",
           borderRadius: "15px",
           mx: "auto",
-          width: { xs: "calc(100% - 650px)", sm: "calc(100% - 300px)" }, // Adjust based on sidebar
+          width: { xs: "100%", sm: "calc(100% - 300px)" }, // Adjust based on sidebar
           left: { xs: "16px", sm: "276px" }, // Position relative to sidebar
           right: { xs: "630px", md: "16px" },
-          top: "16px",
+          top: {xs:"0px",sm:"16px"},
           boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
           height: "70px", // Fixed height
         }}

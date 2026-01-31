@@ -29,7 +29,7 @@ const Mainfolder = () => {
       {/* Main content */}
       <Box component="main" sx={{p:{xs:0, md:3}}}>
         {/* Header */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={4} sx={{p:{xs:0}}}>
           <Header toggleSidebar={handleDrawerToggle} />
         </Grid>
 

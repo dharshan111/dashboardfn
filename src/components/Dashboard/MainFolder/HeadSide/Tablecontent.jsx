@@ -232,9 +232,7 @@ export default function EnhancedTable() {
         <TableContainer
           component={Paper}
           sx={{
-           
-            minWidth: "650px", // Force minimum width to trigger scroll on mobile
-            maxWidth: "800px",
+            width:{xs:"400px", md:"100%"},
             padding: "10px",
             color: "#000",
             borderRadius: "20px",
