@@ -10,7 +10,6 @@ import Registerpage from "./components/ContactSection/LoginRegister/Registerpage
 import Mainfolder from "./components/Dashboard/MainFolder/Mainfolder";
 import Maincontact from "./components/ContactSection/Maincontact";
 import PrivateRoute from "./PrivateRoute";
-
 function App() {
   return (
     <Router>

@@ -73,19 +73,19 @@ function Registerpage() {
         username: formData.username,
         email: formData.email,
         password: formData.password, // Note: In real applications, never store plain passwords!
-        registeredAt: new Date().toISOString()
+        registeredAt: new Date().toISOString(),
       };
 
       // Save to localStorage
       localStorage.setItem("user", JSON.stringify(userData));
-      
+
       // For demo purposes, also store in a users array
       const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
       existingUsers.push(userData);
       localStorage.setItem("users", JSON.stringify(existingUsers));
 
       setSuccess("Registration successful! Redirecting to dashboard...");
-      
+
       // Simulate API call delay
       setTimeout(() => {
         navigate("/dashboard");
@@ -100,15 +100,6 @@ function Registerpage() {
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
-  };
-
-  // Function to clear form
-  const clearForm = () => {
-    setFormData({
-      username: "",
-      email: "",
-      password: "",
-    });
   };
 
   return (
@@ -132,6 +123,24 @@ function Registerpage() {
           position: "relative",
         }}
       >
+        <Box
+          sx={{
+            display: "flex",
+            position: "absolute",
+            left: 0,
+            alignItems: "flex-end",
+            padding: "20px 20px",
+            width: "174px",
+            height: "70px",
+            flexShrink: 0,
+          }}
+        >
+          <img
+            src="https://spike-nextjs-pro-main.vercel.app/images/logos/logo-dark.svg"
+            alt=""
+          />
+        </Box>
+
         <Box
           sx={{
             position: "absolute",
@@ -394,7 +403,7 @@ function Registerpage() {
                   }}
                 />
 
-                <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
+                <Box sx={{ display: "flex", gap: 1, mt: 2 }}>
                   <Button
                     type="submit"
                     fullWidth
@@ -407,20 +416,6 @@ function Registerpage() {
                     }}
                   >
                     Register
-                  </Button>
-                  <Button
-                    type="button"
-                    fullWidth
-                    variant="outlined"
-                    onClick={clearForm}
-                    sx={{
-                      py: 1.5,
-                      borderRadius: "25px",
-                      height: "40px",
-                      textTransform: "none",
-                    }}
-                  >
-                    Clear
                   </Button>
                 </Box>
 

@@ -1226,7 +1226,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
             keepMounted: true,
           }}
           sx={{
-            display: { xs: "block", sm: "block" }, // Show on xs (mobile) and sm (tablet), hide on md and up
+            display: { xs: "block", sm: "content" }, // Show on xs (mobile) and sm (tablet), hide on md and up
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,

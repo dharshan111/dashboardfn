@@ -259,7 +259,7 @@ export default function EnhancedTable() {
   return (
     <Paper
       sx={{
-        width:{xs:"400px", md:"100%"}, // Changed to 100%
+        width:{xs:"400px", md:"100%", sm:"100%"}, // Changed to 100%
         maxWidth: "1040px", // Added maxWidth constraint
         padding: "16px", // Slightly increased padding
         color: "#000",

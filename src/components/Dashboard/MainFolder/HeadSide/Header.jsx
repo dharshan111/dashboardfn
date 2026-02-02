@@ -109,10 +109,10 @@ const Header = ({ toggleSidebar }) => {
           backgroundColor: "#fff",
           borderRadius: "15px",
           mx: "auto",
-          width: { xs: "100%", sm: "calc(100% - 300px)" }, // Adjust based on sidebar
-          left: { xs: "16px", sm: "276px" }, // Position relative to sidebar
-          right: { xs: "630px", md: "16px" },
-          top: {xs:"0px",sm:"16px"},
+          width: { xs: "100%", md: "calc(100% - 300px)", sm:"100%", }, // Adjust based on sidebar
+          left: { xs: "16px", md: "276px", sm:"1px" }, // Position relative to sidebar
+          right: { xs: "630px", md: "16px", },
+          top: {xs:"0px",md:"16px", sm:"10px"},
           boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
           height: "70px", // Fixed height
         }}
@@ -149,7 +149,9 @@ const Header = ({ toggleSidebar }) => {
                 borderRadius: "20px",
                 color: "#000",
                 fontWeight: 400,
-                display: { xs: "none", md: "flex" },
+                display: { xs: "none", md: "flex", sm:"flex"},
+                alignItems:"center",
+                justifyContent:"center",
               }}
             >
               <SearchIcon sx={{ mr: 1 }} />
@@ -234,12 +236,12 @@ const Header = ({ toggleSidebar }) => {
               <Box
                 sx={{
                   border: "1px solid green",
-                  width: "8px",
-                  height: "8px",
+                  width: "10px",
+                  height: "10px",
                   borderRadius: "50%",
                   position: "absolute",
                   top: "4px",
-                  right: "3px",
+                  right: "4px",
                   animation: "beat 0.3s infinite alternate",
                   transformOrigin: "center",
                   "@keyframes beat": {
@@ -257,7 +259,7 @@ const Header = ({ toggleSidebar }) => {
                     borderRadius: "50%",
                     position: "absolute",
                     right: "2.5px",
-                    top: "2.5px",
+                    top: "2.3px",
                     backgroundColor: "#4bd08b",
                   }}
                 />
@@ -273,7 +275,7 @@ const Header = ({ toggleSidebar }) => {
                 fontWeight: 400,
                 minWidth: "auto",
                 padding: "6px",
-                display: { xs: "none", md: "flex" },
+                display: { xs: "none", md: "flex", sm:"flex" },
                 gap: 1,
               }}
             >
@@ -296,22 +298,22 @@ const Header = ({ toggleSidebar }) => {
               >
                 <Typography
                   sx={{
-                    fontSize: "14px",
-                    fontWeight: 600,
+                    fontSize: "16px",
+                    fontWeight:600,
                     textAlign: "center",
                     color: "#000",
-                    lineHeight: 1.2,
+                    lineHeight: "19px",
                   }}
                 >
                   Mike Neilson
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: "11px",
+                    fontSize: "12px",
                     textAlign: "center",
                     color: "#666",
-
                     lineHeight: 1.2,
+      
                   }}
                 >
                   Admin {/* Role - change this text */}

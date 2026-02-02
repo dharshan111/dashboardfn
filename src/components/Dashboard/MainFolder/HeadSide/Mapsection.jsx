@@ -63,7 +63,7 @@ const MapChart = () => {
       </Geographies>
       {markers.map(({ name, coordinates, markerOffset, color }) => (
         <Marker key={name} coordinates={coordinates}>
-          <circle r={20} fill={color} stroke="#fff" strokeWidth={2} />
+          <circle r={15} fill={color} stroke="#fff" strokeWidth={2} />
           <text
             textAnchor="middle"
             y={markerOffset}

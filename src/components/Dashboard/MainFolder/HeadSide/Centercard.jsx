@@ -58,11 +58,12 @@ const Centercard = () => {
           sx={{
             display: "flex",
             alignItems: "center",
+            justifyContent:"space-between",
           }}
         >
           <Box>
             <Box>
-              <CardContent sx={{width:"100%",}}>
+              <CardContent sx={{width:"118%",}}>
                 <Box
                   sx={{
                     display: "flex",
@@ -221,11 +222,12 @@ const Centercard = () => {
           </Box>
 
           {/* image box */}
-          <Box sx={{display:{xs:"none",md:"flex"}}}>
+          <Box sx={{display:{xs:"none",md:"flex", sm:"flex"},}}>
             <img
               src="	https://spike-nextjs-pro-main.vercel.app/images/backgrounds/man-working-on-laptop.png"
               alt=""
-              style={{width:"300px", height:"240px"}}
+              style={{width:"320px", height:"240px"}}
+     
             />
           </Box>
         </Box>

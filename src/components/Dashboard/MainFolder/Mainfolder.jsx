@@ -19,7 +19,7 @@ const Mainfolder = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", }}>
+    <Box sx={{ display: {md:"flex",sm:"content",}, }}>
       <Sidebar
         sx={{ mt: 10 }}
         mobileOpen={mobileOpen}
@@ -27,7 +27,7 @@ const Mainfolder = () => {
       />
 
       {/* Main content */}
-      <Box component="main" sx={{p:{xs:0, md:3}}}>
+      <Box component="main" sx={{p:{xs:0, md:3, sm:1}}}>
         {/* Header */}
         <Grid item xs={12} md={4} sx={{p:{xs:0}}}>
           <Header toggleSidebar={handleDrawerToggle} />
@@ -37,7 +37,7 @@ const Mainfolder = () => {
         <Grid container spacing={4}>
           {/* First Row: Barchart & PieCharts */}
           <Grid container>
-            <Grid item size={{ xs: 12, md: 3 }}>
+            <Grid item size={{ xs: 12, md: 3, sm:6}}>
               <Barchart />
               <PieCharts />
             </Grid>
@@ -48,7 +48,7 @@ const Mainfolder = () => {
             </Grid>
 
             {/* ThirdCharts & FourthCharts */}
-            <Grid item size={{ xs: 12, md: 3 }}>
+            <Grid item size={{ xs: 12, md: 3, sm:6 }}>
               <ThirdCharts />
               <FourthCharts />
             </Grid>

@@ -232,7 +232,7 @@ export default function EnhancedTable() {
         <TableContainer
           component={Paper}
           sx={{
-            width:{xs:"400px", md:"100%"},
+            width:{xs:"400px", md:"100%", sm:"100%"},
             padding: "10px",
             color: "#000",
             borderRadius: "20px",

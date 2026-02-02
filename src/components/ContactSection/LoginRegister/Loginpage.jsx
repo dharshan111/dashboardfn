@@ -14,13 +14,9 @@ import {
   InputAdornment,
 } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import {
-  Visibility,
-  VisibilityOff,
-} from "@mui/icons-material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function Loginpage() {
-  
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -67,13 +63,16 @@ function Loginpage() {
     // STRICT CHECK: Only allow demo credentials
     if (formData.email === DEMO_EMAIL && formData.password === DEMO_PASSWORD) {
       setSuccess("Login successful! Redirecting to dashboard...");
-      
+
       // ✅ CRITICAL: Save user to localStorage for PrivateRoute to check
-      localStorage.setItem("user", JSON.stringify({ 
-        email: DEMO_EMAIL,
-        loggedIn: true 
-      }));
-      
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          email: DEMO_EMAIL,
+          loggedIn: true,
+        }),
+      );
+
       // Simulate API call delay
       setTimeout(() => {
         navigate("/dashboard", { replace: true });
@@ -112,10 +111,28 @@ function Loginpage() {
       >
         <Box
           sx={{
+            display: "flex",
+            position:"absolute",
+            left:0,
+            alignItems: "flex-end",
+            padding: "20px 20px",
+            width: "174px",
+            height: "70px",
+            flexShrink: 0,
+          }}
+        >
+          <img
+            src="https://spike-nextjs-pro-main.vercel.app/images/logos/logo-dark.svg"
+            alt=""
+          />
+        </Box>
+        <Box
+          sx={{
             position: "absolute",
             top: { xs: "-50px", sm: "-70px", md: "-92px" },
             right: { xs: "-40px", sm: "-60px", md: "-77px" },
             zIndex: -1,
+            
           }}
         >
           <img
@@ -127,9 +144,11 @@ function Loginpage() {
             }}
           />
         </Box>
-        <Box sx={{
-          padding:{xs:"20px",md:"5px"},
-        }}>
+        <Box
+          sx={{
+            padding: { xs: "20px", md: "5px" },
+          }}
+        >
           {/* Bottom left box */}
           <Box
             sx={{
@@ -293,8 +312,8 @@ function Loginpage() {
                   "& .MuiSvgIcon-root": {
                     opacity: 0.3,
                   },
-                  display: 'flex',
-                  alignItems:"center",
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
                 <Box>
