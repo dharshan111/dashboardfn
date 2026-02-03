@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, Container } from "@mui/material";
 import Header from "./HeadSide/Header";
 import Barchart from "./HeadSide/Barchart";
 import PieCharts from "./HeadSide/Secondchart";
@@ -19,7 +19,7 @@ const Mainfolder = () => {
   };
 
   return (
-    <Box sx={{ display: {md:"flex",sm:"content"}, }}>
+    <Box sx={{ display: { md: "flex", sm: "content" } }}>
       <Sidebar
         sx={{ mt: 10 }}
         mobileOpen={mobileOpen}
@@ -27,40 +27,41 @@ const Mainfolder = () => {
       />
 
       {/* Main content */}
-      <Box component="main" sx={{p:{xs:3, md:3, sm:1}}}>
+      <Box component="main" sx={{ p: { xs: 3, md: 3, sm: 1 } }}>
         {/* Header */}
-        <Grid item xs={12} md={4} sx={{p:{xs:0}}}>
-          <Header toggleSidebar={handleDrawerToggle} /> 
+        <Grid item xs={12} md={4} sx={{ p: { xs: 0 } }}>
+          <Header toggleSidebar={handleDrawerToggle} />
         </Grid>
 
         {/* Dashboard content */}
         <Grid container spacing={4}>
           {/* First Row: Barchart & PieCharts */}
-            <Grid item size={{ xs: 12, md: 3, sm:6}}>
-              <Barchart />
-              <PieCharts />
-            </Grid>
 
-            {/* Centercard */}
-            <Grid item size={{ xs: 12, md: 6 }}>
-              <Centercard />
-            </Grid>
+          <Grid item size={{ xs: 12, md: 3,}}>
+            <Barchart />
+            <PieCharts />
+          </Grid>
 
-            {/* ThirdCharts & FourthCharts */}
-            <Grid item size={{ xs: 12, md: 3, sm:6 }}>
-              <ThirdCharts />
-              <FourthCharts />
-            </Grid>
+          {/* Centercard */}
+          <Grid item size={{ xs: 12, md: 6 }}>
+            <Centercard />
+          </Grid>
+
+          {/* ThirdCharts & FourthCharts */}
+          <Grid item size={{ xs: 12, md: 3,}}>
+            <ThirdCharts />
+            <FourthCharts />
+          </Grid>
 
           {/* Second Row: Mapsection and Tablecontent */}
 
-            <Grid item size={{ xs: 12, md: 4 }}>
-              <Mapsection />
-            </Grid> 
-            <Grid item size={{ xs: 12, md: 8 }}>
-              <Tablecontent />
-            </Grid>
-          
+          <Grid item size={{ xs: 12, md: 4 }}>
+            <Mapsection />
+          </Grid>
+          <Grid item size={{ xs: 12, md: 8 }}>
+            <Tablecontent />
+          </Grid>
+
           {/* Databox - Full width */}
           <Grid item size={12}>
             <Databox />
