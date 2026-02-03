@@ -130,7 +130,7 @@ function Loginpage() {
           sx={{
             position: "absolute",
             top: { xs: "-50px", sm: "-70px", md: "-92px" },
-            right: { xs: "-40px", sm: "-60px", md: "-77px" },
+            right: { xs: "-15px", sm: "-60px", md: "-77px" },
             zIndex: -1,
             
           }}

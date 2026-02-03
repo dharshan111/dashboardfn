@@ -32,8 +32,7 @@ export default function PaymentChart() {
         color: "#000",
         borderRadius: "15px",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-        mt:2,
-        
+        mt: 2,
       }}
     >
       <StatHeader
@@ -116,18 +115,39 @@ export default function PaymentChart() {
         />
       </Box>
 
-      <Box sx={{display:"flex", flexDirection:"column", justifyContent:"space-between", alignItems: "center"}}>
-        <Box sx={{ display: "flex", justifyContent:"space-between", alignItems: "center" }}>
-          <Box sx={{ display: "flex", gap: 5 }}>
-            <Typography sx={{ opacity: 0.7, fontSize:"14px", }}>April 07 - April 14</Typography>
-            <Typography sx={{ opacity: 0.7, fontSize:"14px" }} >6,380</Typography>
-          </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            flexDirection: "column",
+          }}
+        >
+          <Typography sx={{ opacity: 0.7, fontSize: "14px" }}>
+            April 07 - April 14
+          </Typography>
+          <Typography sx={{ opacity: 0.7, fontSize: "14px" }}>
+            Last Week
+          </Typography>
         </Box>
-        <Box sx={{ display: "flex", justifyContent:"space-between", alignItems: "center", mt:1,  }}>
-          <Box sx={{ display: "flex", gap: 10.3 }}>
-            <Typography sx={{ opacity: 0.7, fontSize:"14px",}}>Last Week</Typography>
-            <Typography sx={{ opacity: 0.7,fontSize:"14px" }}>4,298</Typography>
-          </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            flexDirection: "column",
+          }}
+        >
+          <Typography sx={{ opacity: 0.7, fontSize: "14px" }}>6,380</Typography>
+          <Typography sx={{ opacity: 0.7, fontSize: "14px" }}>4,298</Typography>
         </Box>
       </Box>
     </Box>

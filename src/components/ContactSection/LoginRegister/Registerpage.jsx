@@ -145,7 +145,7 @@ function Registerpage() {
           sx={{
             position: "absolute",
             top: { xs: "-50px", sm: "-70px", md: "-92px" },
-            right: { xs: "-40px", sm: "-60px", md: "-77px" },
+            right: { xs: "-15px", sm: "-25px", md: "-77px" },
             zIndex: -1,
           }}
         >
@@ -234,7 +234,7 @@ function Registerpage() {
                   flexDirection: "column",
                 }}
               >
-                <Typography variant="h6" sx={{ fontSize: "28px" }}>
+                <Typography variant="h6" sx={{ fontSize: {md:"28px", xs:"20px"} }}>
                   Create Your Account
                 </Typography>
                 <Typography
