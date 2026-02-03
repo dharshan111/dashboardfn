@@ -6,14 +6,14 @@ import {
 } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
-// Public pages (load immediately)
+// Public pages (eager)
 import Loginpage from "./components/ContactSection/LoginRegister/Loginpage";
 import Registerpage from "./components/ContactSection/LoginRegister/Registerpage";
 
-// Private route wrapper
+// Auth wrapper
 import PrivateRoute from "./PrivateRoute";
 
-// Lazy-loaded pages (heavy ones)
+// Lazy pages (heavy)
 const Mainfolder = lazy(() =>
   import("./components/Dashboard/MainFolder/Mainfolder")
 );
@@ -22,52 +22,56 @@ const Maincontact = lazy(() =>
   import("./components/ContactSection/Maincontact")
 );
 
+// Loader component
+const Loader = () => (
+  <div
+    style={{
+      height: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      fontSize: "18px",
+    }}
+  >
+    Loading...
+  </div>
+);
+
 function App() {
   return (
     <Router>
-      <Suspense
-        fallback={
-          <div
-            style={{
-              height: "100vh",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "18px",
-            }}
-          >
-            Loading dashboard...
-          </div>
-        }
-      >
-        <Routes>
-          {/* Default route */}
-          <Route path="/" element={<Navigate to="/login" />} />
+      <Routes>
+        {/* Default */}
+        <Route path="/" element={<Navigate to="/login" />} />
 
-          {/* Public routes */}
-          <Route path="/login" element={<Loginpage />} />
-          <Route path="/register" element={<Registerpage />} />
+        {/* Public */}
+        <Route path="/login" element={<Loginpage />} />
+        <Route path="/register" element={<Registerpage />} />
 
-          {/* Private routes */}
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute>
+        {/* Private: Dashboard */}
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Suspense fallback={<Loader />}>
                 <Mainfolder />
-              </PrivateRoute>
-            }
-          />
+              </Suspense>
+            </PrivateRoute>
+          }
+        />
 
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRoute>
+        {/* Private: Contacts */}
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute>
+              <Suspense fallback={<Loader />}>
                 <Maincontact />
-              </PrivateRoute>
-            }
-          />
-        </Routes>
-      </Suspense>
+              </Suspense>
+            </PrivateRoute>
+          }
+        />
+      </Routes>
     </Router>
   );
 }
