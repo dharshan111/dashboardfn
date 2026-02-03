@@ -90,17 +90,18 @@ const Centercard = () => {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
+                      width:"100%",
                     }}
                   >
                     <Typography
                       sx={{
                         fontSize: "14px",
-                        fontWeight: 600,
+                        fontWeight:600,
                         color: "#000",
                         lineHeight: 1.2,
                       }}
                     >
-                      64 new Orders
+                      64 Orders
                     </Typography>
                     <Typography
                       sx={{
