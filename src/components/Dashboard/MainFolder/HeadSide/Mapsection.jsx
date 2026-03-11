@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, LinearProgress, Stack } from "@mui/material";
 import { geoAlbersUsa, geoPath } from "d3-geo";
 import { feature } from "topojson-client";

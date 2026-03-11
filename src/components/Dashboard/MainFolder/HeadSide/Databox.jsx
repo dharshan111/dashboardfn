@@ -242,7 +242,7 @@ export default function EnhancedTable() {
         "&:hover": { opacity: 0.8 },
       }}
       
-      onClick={() => handleSort(sortKey)}
+      onClick={() => handleSort(sortKey)} 
     >
       <Typography variant="body2" fontWeight="bold">
         {label}
